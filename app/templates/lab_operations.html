@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}{{ section_title }} — TSCO Digital Laboratory{% endblock %}
+{% block topbar_title %}{{ section_title }}{% endblock %}
+{% block topbar_subtitle %}Laboratory Operations · {{ user.site.name if user.site else 'Dammam' }}{% endblock %}
+{% block content %}
+<div class="lab-module lab-module-seamless" aria-label="Integrated transformer oil laboratory operations">
+  <div class="lab-utility-strip">
+    <span class="lab-context"><span class="site-dot"></span>{{ user.site.code if user.site else 'DMM' }} Laboratory</span>
+    <div class="lab-utility-actions">
+      <span class="network-chip" data-network-state>Online</span>
+      {% if section == 'knowledge' %}<a class="button secondary small-button" href="/documents">Controlled Documents</a>{% endif %}
+      <a class="button secondary small-button" href="/lab">Sample Queue</a>
+    </div>
+  </div>
+  <iframe id="labOperationsFrame" class="lab-frame lab-frame-seamless" title="{{ section_title }}" src="/lab/operations/app?embed=1&section={{ section }}" scrolling="no"></iframe>
+</div>
+<script>
+(function(){
+  const frame=document.getElementById('labOperationsFrame');
+  const info={{ section_info|tojson }};
+  const titleEl=document.getElementById('platformTopbarTitle');
+  const subtitleEl=document.getElementById('platformTopbarSubtitle');
+  function setSection(section,fromFrame){
+    if(!info[section])return;
+    const url=new URL(window.location.href);url.searchParams.set('section',section);
+    history.replaceState({},'',url.pathname+url.search);
+    if(titleEl)titleEl.textContent=info[section].title;
+    if(subtitleEl)subtitleEl.textContent='Laboratory Operations · {{ user.site.name if user.site else "Dammam" }}';
+    document.title=info[section].title+' — TSCO Digital Laboratory';
+    document.querySelectorAll('.side-link').forEach(a=>{
+      const u=new URL(a.href,window.location.origin);
+      a.classList.toggle('active',u.pathname==='/lab/operations'&&u.searchParams.get('section')===section);
+    });
+    if(!fromFrame&&frame&&frame.contentWindow)frame.contentWindow.postMessage({type:'TSCO_LAB_SECTION',section},window.location.origin);
+  }
+  window.addEventListener('message',event=>{
+    if(event.origin!==window.location.origin||!event.data)return;
+    if(event.data.type==='TSCO_LAB_HEIGHT'&&frame){
+      const h=Math.max(620,Math.min(Number(event.data.height)||760,12000));
+      frame.style.height=h+'px';
+    }
+    if(event.data.type==='TSCO_LAB_SECTION_CHANGE')setSection(event.data.section,true);
+  });
+  document.querySelectorAll('.side-link[href^="/lab/operations?section="]').forEach(a=>{
+    a.addEventListener('click',event=>{
+      if(!frame||window.innerWidth<520)return;
+      const u=new URL(a.href,window.location.origin),section=u.searchParams.get('section');
+      if(!info[section])return;
+      event.preventDefault();setSection(section,false);
+    });
+  });
+})();
+</script>
+{% endblock %}

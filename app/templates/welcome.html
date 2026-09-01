@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}TSCO Digital Laboratory Platform{% endblock %}
+{% block public_content %}
+<section class="portal-hero final-portal">
+  <div class="portal-intro">
+    <span class="eyebrow">TSCO DIGITAL LABORATORY PLATFORM</span>
+    <h1>Laboratory operations.<br>One connected platform.</h1>
+    <p>Sampling, receiving, laboratory processing, technical review and client tracking.</p>
+  </div>
+  <div class="portal-options">
+    <a class="portal-card" href="/login/employee"><span class="portal-icon">▦</span><div><h2>Employee Portal</h2><p>Operations, receiving, laboratory, quality and management.</p></div><b>Sign in →</b></a>
+    <a class="portal-card" href="/login/field"><span class="portal-icon">⌖</span><div><h2>Field Sampling</h2><p>Sampling assignments, asset capture and barcode workflow.</p></div><b>Sign in →</b></a>
+    <a class="portal-card" href="/login/client"><span class="portal-icon">◉</span><div><h2>Client Portal</h2><p>Sample status, milestones and released reports.</p></div><b>Sign in →</b></a>
+  </div>
+</section>
+<section class="system-strip">
+  <span>Sampling</span><i>→</i><span>Data Entry</span><i>→</i><span>Receiving</span><i>→</i><span>Laboratory</span><i>→</i><span>Technical Review</span><i>→</i><span>Report</span>
+</section>
+{% endblock %}

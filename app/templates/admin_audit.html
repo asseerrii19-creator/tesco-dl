@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block title %}Administration Audit{% endblock %}
+{% block content %}
+<div class="page-head"><div><span class="eyebrow">ADMINISTRATION</span><h1>Administration Audit</h1></div><a class="button secondary" href="/admin">Admin Home</a></div>
+<form method="get" class="scan-box"><input name="q" value="{{ q }}" placeholder="Search action, entity or summary"><button>Search</button></form>
+<section class="panel"><div class="table-wrap"><table><thead><tr><th>Time</th><th>User</th><th>Action</th><th>Entity</th><th>Summary</th><th>IP</th></tr></thead><tbody>{% for r in rows %}<tr><td>{{ r.created_at.strftime('%Y-%m-%d %H:%M:%S') }}</td><td>{{ r.actor.full_name if r.actor else 'System' }}</td><td>{{ r.action }}</td><td>{{ r.entity_type }} {{ r.entity_id }}</td><td>{{ r.summary }}{% if r.details %}<details><summary>Details</summary><code class="code-block">{{ r.details }}</code></details>{% endif %}</td><td>{{ r.ip_address or '—' }}</td></tr>{% else %}<tr><td colspan="6">No audit records.</td></tr>{% endfor %}</tbody></table></div></section>
+{% endblock %}

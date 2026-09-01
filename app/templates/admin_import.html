@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Bulk Import{% endblock %}
+{% block content %}
+<div class="page-head"><div><span class="eyebrow">ADMINISTRATION</span><h1>Bulk Master-Data Import</h1></div><a class="button secondary" href="/admin">Admin Home</a></div>
+{% if result %}<div class="alert success">Imported {{ result.inserted }} {{ result.type }} records. Skipped {{ result.skipped }} existing records.</div>{% endif %}
+{% for error in errors %}<div class="alert danger">{{ error }}</div>{% endfor %}
+<div class="grid two">
+<section class="panel"><h2>Upload CSV</h2><form method="post" enctype="multipart/form-data" class="stack"><label>Import type<select name="import_type"><option value="clients">Companies</option><option value="assets">Assets / Transformers</option></select></label><label>CSV file<input type="file" name="csv_file" accept=".csv,text/csv" required></label><button>Validate and Import</button></form><div class="alert info">Existing company codes or asset codes are skipped. A validation error stops the import and prevents a partial load.</div></section>
+<section class="panel"><h2>Required columns</h2><h3>Companies</h3><code class="code-block">code,name,contact_email,contact_phone,notes</code><h3>Assets</h3><code class="code-block">client_code,asset_code,serial_number,equipment_type,manufacturer,voltage_kv,rated_mva,station_name,asset_location_label,latitude,longitude</code><p class="muted">Templates are included under <code>docs/import_templates/</code> in the package.</p></section>
+</div>
+{% endblock %}

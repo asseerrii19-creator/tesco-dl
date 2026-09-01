@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Barcode Receipt{% endblock %}
+{% block content %}
+<div class="page-head"><div><h1>Barcode Receipt</h1></div></div>
+<form method="get" class="scan-box"><input name="barcode" value="{{ barcode }}" placeholder="Scan barcode / enter request number" autofocus><button>Find Sample</button></form>
+{% if error %}<div class="alert danger">{{ error }}</div>{% endif %}
+{% if barcode and not sample %}<div class="alert danger">No matching sample request found.</div>{% endif %}
+{% if sample %}<section class="panel"><div class="page-head"><div><h2>{{ sample.request_number }}</h2><p>{{ sample.client.name }} · {{ sample.asset.asset_code }} · {{ sample.sampling_point }}</p></div><span class="status {{ sample.status|lower }}">{{ sample.status }}</span></div><dl class="details"><dt>Containers expected</dt><dd>{{ sample.container_count }}</dd><dt>Sampler</dt><dd>{{ sample.sampler.full_name }}</dd><dt>GPS</dt><dd>{{ sample.gps_latitude or '—' }}, {{ sample.gps_longitude or '—' }}</dd><dt>Quotation / PO</dt><dd>{{ sample.quotation.number if sample.quotation else '—' }} / {{ sample.purchase_order.number if sample.purchase_order else '—' }}</dd><dt>LMS number</dt><dd><b>{{ sample.lms_number or 'Not registered — return to Data Entry' }}</b></dd></dl><form method="post" action="/receiving/{{ sample.id }}/receive" class="form-grid"><label>Seal status<select name="seal_status"><option>Intact</option><option>Broken</option><option>Not Applicable</option></select></label><label>Condition note<input name="condition_note" placeholder="Bottle condition / quantity"></label><div class="wide"><button>Confirm Physical Receipt</button></div></form></section>{% endif %}
+{% endblock %}

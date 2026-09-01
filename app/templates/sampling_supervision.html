@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block title %}Sampling Supervision{% endblock %}
+{% block content %}
+<div class="page-head"><div><h1>Sampling Supervision</h1></div></div>
+<section class="panel"><div class="table-wrap"><table><thead><tr><th>Order / Code</th><th>Client</th><th>Asset</th><th>Source</th><th>Current sampler</th><th>Status</th><th>Assign / reassign</th></tr></thead><tbody>
+{% for a in assignments %}<tr><td><b>{{ a.order.order_number }}</b><br><span class="muted">{{ a.assignment_code }}</span></td><td>{{ a.order.client.name }}</td><td>{{ a.asset.asset_code if a.asset else 'New / field entry' }}</td><td>{{ a.source_party }}</td><td>{{ a.assigned_sampler.full_name if a.assigned_sampler else 'Unassigned' }}</td><td><span class="status {{ a.status|lower }}">{{ a.status }}</span></td><td><form method="post" action="/sampling-supervision/assignment/{{ a.id }}/assign" class="inline-form"><select name="sampler_id" required><option value="">Select</option>{% for s in samplers %}{% if (s.client_id is none and a.source_party == 'TSCO') or (s.client_id == a.order.client_id and a.source_party == 'CLIENT') %}<option value="{{ s.id }}">{{ s.full_name }}</option>{% endif %}{% endfor %}</select><input name="note" placeholder="Optional note"><button>Assign</button></form></td></tr>{% else %}<tr><td colspan="7">No assignments.</td></tr>{% endfor %}
+</tbody></table></div></section>
+{% endblock %}

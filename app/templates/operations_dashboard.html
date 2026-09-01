@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}Sampling Operations{% endblock %}
+{% block content %}
+<div class="page-head"><div><span class="eyebrow">OPERATIONS</span><h1>Sampling Orders</h1></div></div>
+<div class="grid two operations-create-grid">
+<section class="panel">
+<h2>Create Sampling Order</h2>
+<form method="post" action="/operations/orders">
+<div class="form-grid">
+<label>Client<select name="client_id" required><option value="">Select</option>{% for c in clients %}<option value="{{ c.id }}">{{ c.code }} — {{ c.name }}</option>{% endfor %}</select></label>
+<label>Quotation<select name="quotation_id"><option value="">Not selected</option>{% for q in quotes %}<option value="{{ q.id }}">{{ q.number }}</option>{% endfor %}</select></label>
+<label>PO<select name="purchase_order_id"><option value="">Not selected</option>{% for p in pos %}<option value="{{ p.id }}">{{ p.number }}</option>{% endfor %}</select></label>
+<label>Sampling Supervisor<select name="supervisor_id"><option value="">Assign later</option>{% for s in supervisors %}<option value="{{ s.id }}">{{ s.full_name }}</option>{% endfor %}</select></label>
+<label>Title<input name="title" value="Transformer oil sampling"></label>
+<label>Priority<select name="priority"><option>Normal</option><option>High</option><option>Urgent</option></select></label>
+<label>Due date/time<input type="datetime-local" name="due_at"></label>
+<label class="wide">Instructions<textarea name="notes" rows="3"></textarea></label>
+</div><button>Create Order</button>
+</form>
+</section>
+<section class="panel order-summary-panel"><h2>Order Summary</h2><div class="summary-stack"><div><span>Total Orders</span><b>{{ orders|length }}</b></div><div><span>Open / Active</span><b>{{ orders|selectattr('status','ne','COMPLETED')|list|length }}</b></div><div><span>Assignments</span><b>{% set ns = namespace(total=0) %}{% for o in orders %}{% set ns.total = ns.total + (o.assignments|length) %}{% endfor %}{{ ns.total }}</b></div></div></section>
+</div>
+{% for o in orders %}
+<section class="panel" id="order-{{ o.id }}">
+<div class="page-head compact-head"><div><h2>{{ o.order_number }} · {{ o.client.code }}</h2><p>{{ o.title }} · {{ o.priority }} · {{ o.supervisor.full_name if o.supervisor else 'Supervisor not assigned' }}</p></div><span class="status {{ o.status|lower }}">{{ o.status }}</span></div>
+<div class="table-wrap"><table><thead><tr><th>Code</th><th>Asset</th><th>Source</th><th>Sampler</th><th>Package</th><th>Status</th></tr></thead><tbody>
+{% for a in o.assignments %}<tr><td><b>{{ a.assignment_code }}</b></td><td>{{ a.asset.asset_code if a.asset else 'Field entry' }}</td><td>{{ a.source_party }}</td><td>{{ a.assigned_sampler.full_name if a.assigned_sampler else 'Unassigned' }}</td><td>{{ a.requested_package }}</td><td><span class="status {{ a.status|lower }}">{{ a.status }}</span></td></tr>{% else %}<tr><td colspan="6">No assignments yet.</td></tr>{% endfor %}
+</tbody></table></div>
+<form method="post" action="/operations/orders/{{ o.id }}/assignments" class="subpanel">
+<h3>Add Assignment</h3><div class="form-grid">
+<label>Asset<select name="asset_id"><option value="">Field enters new asset</option>{% for a in assets if a.client_id == o.client_id %}<option value="{{ a.id }}">{{ a.asset_code }} — {{ a.serial_number }} — {{ a.station_name }}</option>{% endfor %}</select></label>
+<label>Source<select name="source_party"><option value="TSCO">TSCO</option><option value="CLIENT">Client</option></select></label>
+<label>Assign to<select name="assigned_sampler_id"><option value="">Assign later</option>{% for s in samplers %}{% if (s.client_id is none) or s.client_id == o.client_id %}<option value="{{ s.id }}">{{ s.full_name }} — {{ s.role.replace('_',' ') }}</option>{% endif %}{% endfor %}</select></label>
+<label>Package<select name="requested_package">{% for package_name in package_names %}<option>{{ package_name }}</option>{% endfor %}</select></label>
+<label>Sampling point<select name="sampling_point"><option>Main Tank Bottom</option><option>Main Tank Top</option><option>OLTC</option><option>Bushing</option><option>Drum / Tote</option><option>Other</option></select></label>
+<label>Containers<input type="number" min="1" value="1" name="container_count"></label>
+<label class="wide">Instructions<input name="instructions"></label>
+</div><button>Add Assignment</button></form>
+</section>
+{% endfor %}
+{% endblock %}

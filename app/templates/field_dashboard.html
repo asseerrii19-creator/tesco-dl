@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Field Sampling{% endblock %}
+{% block content %}
+<div class="page-head"><div><h1>Field Sampling</h1></div><a class="button" href="/field/new">+ Unplanned / direct sample</a></div>
+<div class="grid cards-4">
+  <div class="metric"><span>Total collected</span><strong>{{ samples|length }}</strong></div>
+  <div class="metric"><span>Returned</span><strong>{{ samples|selectattr('status','equalto','RETURNED')|list|length }}</strong></div>
+  <div class="metric"><span>Accepted / later</span><strong>{{ samples|rejectattr('status','in',['SUBMITTED','RETURNED','REJECTED'])|list|length }}</strong></div>
+  <div class="metric"><span>Missing GPS</span><strong>{{ samples|selectattr('gps_latitude','none')|list|length }}</strong></div>
+</div>
+
+<section class="panel"><div class="page-head"><div><h2>My assigned sampling work</h2><p>Orders assigned by the Sampling Supervisor or client operations team.</p></div><form action="/field/new" method="get" class="inline-form"><input name="code" placeholder="Assignment code"><button>Open code</button></form></div><div class="table-wrap"><table><thead><tr><th>Order</th><th>Assignment code</th><th>Client</th><th>Asset</th><th>Package</th><th>Source</th><th></th></tr></thead><tbody>{% for a in assignments %}<tr><td>{{ a.order.order_number }}</td><td><b>{{ a.assignment_code }}</b></td><td>{{ a.order.client.name }}</td><td>{{ a.asset.asset_code if a.asset else 'Enter in field' }}</td><td>{{ a.requested_package }}</td><td>{{ a.source_party }}</td><td><a class="button small-button" href="/field/new?assignment_id={{ a.id }}">Start</a></td></tr>{% else %}<tr><td colspan="7">No active assignments.</td></tr>{% endfor %}</tbody></table></div></section>
+<section class="panel">
+<h2>My recent samples</h2>
+<div class="table-wrap"><table><thead><tr><th>Request</th><th>Client</th><th>Asset</th><th>Sampling point</th><th>Status</th><th>Submitted</th></tr></thead><tbody>
+{% for s in samples %}<tr><td><a href="/field/sample/{{ s.id }}">{{ s.request_number }}</a></td><td>{{ s.client.name }}</td><td>{{ s.asset.asset_code }}</td><td>{{ s.sampling_point }}</td><td><span class="status {{ s.status|lower }}">{{ s.status.replace('_',' ') }}</span></td><td>{{ s.submitted_at.strftime('%Y-%m-%d %H:%M') if s.submitted_at else '—' }}</td></tr>{% else %}<tr><td colspan="6">No samples yet.</td></tr>{% endfor %}
+</tbody></table></div></section>
+{% endblock %}

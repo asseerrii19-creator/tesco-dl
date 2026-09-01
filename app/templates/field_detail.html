@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}{{ sample.request_number }}{% endblock %}
+{% block content %}
+<div class="page-head"><div><h1>{{ sample.request_number }}</h1></div><a class="button" href="/field/sample/{{ sample.id }}/label">Download Barcode Tag</a></div>
+<div class="grid two">
+<section class="panel"><h2>Sample</h2><dl class="details"><dt>Status</dt><dd><span class="status {{ sample.status|lower }}">{{ sample.status }}</span></dd><dt>Barcode</dt><dd><code>{{ sample.barcode_value }}</code></dd><dt>Sampling point</dt><dd>{{ sample.sampling_point }}</dd><dt>Test package</dt><dd>{{ sample.requested_package }}</dd><dt>Coordinates</dt><dd>{{ sample.gps_latitude or '—' }}, {{ sample.gps_longitude or '—' }}</dd><dt>Quotation</dt><dd>{{ sample.quotation.number if sample.quotation else '—' }}</dd><dt>PO</dt><dd>{{ sample.purchase_order.number if sample.purchase_order else '—' }}</dd></dl></section>
+<section class="panel"><h2>Client tracking</h2><p>Authorized client users can open this milestone view after signing in to the Client Portal.</p><a href="/track/{{ sample.public_token }}" target="_blank">Open tracking page</a><div class="alert info">The tracking page exposes client-safe milestones only. Internal notes, QC and laboratory findings remain restricted.</div></section>
+</div>
+<section class="panel"><h2>Photo evidence</h2><div class="photo-grid">{% for p in sample.photos %}<figure><img src="/uploads/{{ p.stored_path.split('/')[-1] }}" alt="{{ p.kind }}"><figcaption>{{ p.kind }}</figcaption></figure>{% else %}<p>No photos uploaded.</p>{% endfor %}</div></section>
+{% endblock %}

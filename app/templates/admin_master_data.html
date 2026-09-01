@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Master Data Center{% endblock %}
+{% block content %}
+<div class="page-head"><div><span class="eyebrow">ADMINISTRATION</span><h1>Master Data Center</h1><p class="muted">Operational configuration managed without code changes.</p></div><a class="button secondary" href="/admin">Admin Home</a></div>
+<div class="module-launch-grid">
+<a href="/admin/sites"><span class="launch-icon">S</span><div><b>Sites & Laboratories</b><small>{{ counts.sites }} configured</small></div></a>
+<a href="/admin/hierarchy"><span class="launch-icon">H</span><div><b>Organization Hierarchy</b><small>{{ counts.departments }} departments · {{ counts.client_units }} client units</small></div></a>
+<a href="/admin/clients"><span class="launch-icon">C</span><div><b>Client Companies</b><small>{{ counts.clients }} companies</small></div></a>
+<a href="/admin/assets"><span class="launch-icon">A</span><div><b>Asset Registry</b><small>{{ counts.assets }} assets</small></div></a>
+<a href="/admin/documents"><span class="launch-icon">D</span><div><b>SOP / Methods / EOP</b><small>{{ counts.documents }} controlled revisions</small></div></a>
+<a href="/admin/test-packages"><span class="launch-icon">T</span><div><b>Tests & Packages</b><small>{{ counts.packages }} packages</small></div></a>
+<a href="/admin/workflows"><span class="launch-icon">W</span><div><b>Workflow & Approvals</b><small>{{ counts.workflows }} workflow versions</small></div></a>
+<a href="/admin/users"><span class="launch-icon">U</span><div><b>Users & Access</b><small>Roles, sites, departments and client scope</small></div></a>
+</div>
+{% endblock %}

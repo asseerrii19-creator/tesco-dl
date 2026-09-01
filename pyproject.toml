@@ -1,0 +1,9 @@
+[project]
+name = "tsco-digital-laboratory-platform"
+version = "2.1.0"
+description = "Final UAT system for field sampling, barcode custody, LMS intake, laboratory operations, technical assessment, retained samples and client tracking"
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

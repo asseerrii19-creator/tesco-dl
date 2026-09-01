@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block title %}Track {{ sample.request_number }}{% endblock %}
+{% macro tracking_body() %}
+<div class="tracking-card"><div class="tracking-head"><div><span class="eyebrow">SAMPLE TRACKING</span><h1>{{ sample.request_number }}</h1><p>{{ sample.client.name }} · {{ sample.asset.asset_code }}</p></div><span class="status {{ sample.status|lower }}">{{ status_labels.get(sample.status,sample.status) }}</span></div><div class="tracking-meta"><div><span>Serial number</span><strong>{{ sample.asset.serial_number }}</strong></div><div><span>Sampling point</span><strong>{{ sample.sampling_point }}</strong></div><div><span>LMS number</span><strong>{{ sample.lms_number or 'Pending registration' }}</strong></div><div><span>Collected</span><strong>{{ sample.sample_date_time.strftime('%Y-%m-%d %H:%M') }}</strong></div></div><div class="milestones">{% for status in status_order %}<div class="milestone {% if status in completed %}done{% endif %} {% if status == sample.status %}current{% endif %}"><span>{% if status in completed %}✓{% endif %}</span><div><strong>{{ status_labels[status] }}</strong></div></div>{% endfor %}</div><div class="alert info">This page shows operational milestones only. Laboratory findings and internal review notes remain restricted.</div></div>
+{% endmacro %}
+{% block content %}{{ tracking_body() }}{% endblock %}
+{% block public_content %}{{ tracking_body() }}{% endblock %}

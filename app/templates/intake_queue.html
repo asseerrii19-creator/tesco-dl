@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Sample Intake{% endblock %}
+{% block content %}
+<div class="page-head"><div><h1>Pending Sample Submissions</h1></div></div>
+<form class="search" method="get"><input name="q" value="{{ q }}" placeholder="Request, barcode or LMS number"><button>Search</button></form>
+<section class="panel"><div class="table-wrap"><table><thead><tr><th>Request</th><th>Client / Asset</th><th>Sampler / Source</th><th>Quotation / PO</th><th>Status</th><th>GPS</th><th>Photos</th></tr></thead><tbody>
+{% for s in samples %}<tr><td><a href="/intake/{{ s.id }}">{{ s.request_number }}</a><br><code>{{ s.barcode_value }}</code></td><td>{{ s.client.name }}<br>{{ s.asset.asset_code }} / {{ s.asset.serial_number }}</td><td>{{ s.sampler.full_name }}<br><span class="muted">{{ s.submission_channel.replace("_"," ") }}</span></td><td>{{ s.quotation.number if s.quotation else '—' }}<br>{{ s.purchase_order.number if s.purchase_order else '—' }}</td><td><span class="status {{ s.status|lower }}">{{ s.status }}</span></td><td>{{ 'Yes' if s.gps_latitude is not none else 'Missing' }}</td><td>{{ s.photos|length }}</td></tr>{% else %}<tr><td colspan="7">No records.</td></tr>{% endfor %}
+</tbody></table></div></section>
+{% endblock %}

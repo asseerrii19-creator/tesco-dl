@@ -1,0 +1,11 @@
+{
+  "name": "TSCO Digital Laboratory Platform",
+  "short_name": "TSCO Lab",
+  "start_url": "/welcome",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f4f7fa",
+  "theme_color": "#0b263f",
+  "description": "Secure field sampling, barcode custody, laboratory operations, technical review and client tracking.",
+  "icons": []
+}

@@ -1,0 +1,2051 @@
+{
+  "packages": [
+    {
+      "id": "GEN_ROUTINE",
+      "name": "Routine Test",
+      "scope": "GENERAL",
+      "kind": "standard",
+      "tests": [
+        {
+          "test": "Dissolved Gas Analysis (DGA)",
+          "method": "",
+          "station": "DGA",
+          "unit": ""
+        },
+        {
+          "test": "Water Content KF @RT",
+          "method": "IEC 60814",
+          "station": "Water",
+          "unit": "mg/kg"
+        },
+        {
+          "test": "Transformer Oil Temperature",
+          "method": "-",
+          "station": "Additives / Special Tests",
+          "unit": "°C"
+        },
+        {
+          "test": "Water Content @20 °C",
+          "method": "IEC 60814",
+          "station": "Water",
+          "unit": "mg/kg"
+        },
+        {
+          "test": "Humidity in Cellulose",
+          "method": "IEC 60814",
+          "station": "Additives / Special Tests",
+          "unit": "%"
+        },
+        {
+          "test": "Total Acid Number",
+          "method": "ASTM D664",
+          "station": "Physical / Chemistry",
+          "unit": "mg KOH/g"
+        },
+        {
+          "test": "Interfacial Tension (IFT)",
+          "method": "ASTM D971",
+          "station": "Physical / Chemistry",
+          "unit": "mN/m"
+        },
+        {
+          "test": "Oil Quality Index",
+          "method": "calculation",
+          "station": "Additives / Special Tests",
+          "unit": ""
+        },
+        {
+          "test": "Power Factor @25°C/60Hz",
+          "method": "ASTM D924",
+          "station": "Electrical",
+          "unit": ""
+        },
+        {
+          "test": "Power Factor @100°C/60Hz",
+          "method": "ASTM D924",
+          "station": "Electrical",
+          "unit": ""
+        },
+        {
+          "test": "Breakdown Voltage @2.5mm- AVG",
+          "method": "IEC 60156",
+          "station": "Electrical",
+          "unit": "kV"
+        },
+        {
+          "test": "RSD% of BDV @2.5mm",
+          "method": "IEC 60156",
+          "station": "Electrical",
+          "unit": "%"
+        },
+        {
+          "test": "Color ASTM",
+          "method": "ASTM D1500",
+          "station": "Physical / Chemistry",
+          "unit": "ASTM Color"
+        },
+        {
+          "test": "Appearance",
+          "method": "ASTM D1524",
+          "station": "Physical / Chemistry",
+          "unit": ""
+        }
+      ]
+    },
+    {
+      "id": "GEN_FULL",
+      "name": "Full Test",
+      "scope": "GENERAL",
+      "kind": "standard",
+      "tests": [
+        {
+          "test": "Dissolved Gas Analysis (DGA)",
+          "method": "",
+          "station": "DGA",
+          "unit": ""
+        },
+        {
+          "test": "Water Content KF @RT",
+          "method": "IEC 60814",
+          "station": "Water",
+          "unit": "mg/kg"
+        },
+        {
+          "test": "Transformer Oil Temperature",
+          "method": "-",
+          "station": "Additives / Special Tests",
+          "unit": "°C"
+        },
+        {
+          "test": "Water Content @20 °C",
+          "method": "IEC 60814",
+          "station": "Water",
+          "unit": "mg/kg"
+        },
+        {
+          "test": "Humidity in Cellulose",
+          "method": "IEC 60814",
+          "station": "Additives / Special Tests",
+          "unit": "%"
+        },
+        {
+          "test": "Total Acid Number",
+          "method": "ASTM D664",
+          "station": "Physical / Chemistry",
+          "unit": "mg KOH/g"
+        },
+        {
+          "test": "Interfacial Tension (IFT)",
+          "method": "ASTM D971",
+          "station": "Physical / Chemistry",
+          "unit": "mN/m"
+        },
+        {
+          "test": "Oil Quality Index",
+          "method": "calculation",
+          "station": "Additives / Special Tests",
+          "unit": ""
+        },
+        {
+          "test": "Density of Oil @RT",
+          "method": "ASTM D7042",
+          "station": "Physical / Chemistry",
+          "unit": "g/cm³"
+        },
+        {
+          "test": "Dissipation Factor @90°C/60Hz",
+          "method": "IEC 60247",
+          "station": "Electrical",
+          "unit": ""
+        },
+        {
+          "test": "Resistivity @       °C/60Hz",
+          "method": "ASTM D1169",
+          "station": "Electrical",
+          "unit": "GΩ·m"
+        },
+        {
+          "test": "Power Factor @25°C/60Hz",
+          "method": "ASTM D924",
+          "station": "Electrical",
+          "unit": ""
+        },
+        {
+          "test": "Power Factor @100°C/60Hz",
+          "method": "ASTM D924",
+          "station": "Electrical",
+          "unit": ""
+        },
+        {
+          "test": "Breakdown Voltage @2.5mm- AVG",
+          "method": "IEC 60156",
+          "station": "Electrical",
+          "unit": "kV"
+        },
+        {
+          "test": "RSD% of BDV @2.5mm",
+          "method": "IEC 60156",
+          "station": "Electrical",
+          "unit": "%"
+        },
+        {
+          "test": "Color ASTM",
+          "method": "ASTM D1500",
+          "station": "Physical / Chemistry",
+          "unit": "ASTM Color"
+        },
+        {
+          "test": "Appearance",
+          "method": "ASTM D1524",
+          "station": "Physical / Chemistry",
+          "unit": ""
+        },
+        {
+          "test": "Refractive Index",
+          "method": "",
+          "station": "Additives / Special Tests",
+          "unit": ""
+        },
+        {
+          "test": "Viscosity @ 40 °C",
+          "method": "ASTM D7042",
+          "station": "Physical / Chemistry",
+          "unit": "mm²/s"
+        },
+        {
+          "test": "Viscosity @ 100 °C",
+          "method": "ASTM D7042",
+          "station": "Physical / Chemistry",
+          "unit": "mm²/s"
+        },
+        {
+          "test": "Viscosity Index",
+          "method": "",
+          "station": "Physical / Chemistry",
+          "unit": "mm²/s"
+        },
+        {
+          "test": "Total Base Number",
+          "method": "",
+          "station": "Additives / Special Tests",
+          "unit": ""
+        },
+        {
+          "test": "Peroxide Number",
+          "method": "ASTM D3703",
+          "station": "Additives / Special Tests",
+          "unit": ""
+        },
+        {
+          "test": "pH",
+          "method": "",
+          "station": "Additives / Special Tests",
+          "unit": ""
+        },
+        {
+          "test": "Metals",
+          "method": "",
+          "station": "Additives / Special Tests",
+          "unit": ""
+        },
+        {
+          "test": "2-Furfural (2FAL)",
+          "method": "IEC 61198",
+          "station": "Furan",
+          "unit": "mg/kg"
+        },
+        {
+          "test": "Indirect DP-value",
+          "method": "Calculation",
+          "station": "Furan",
+          "unit": ""
+        },
+        {
+          "test": "Paper Lifetime Remaining",
+          "method": "Calculation",
+          "station": "Furan",
+          "unit": ""
+        },
+        {
+          "test": "Antioxidant (BHT)",
+          "method": "IEC 60666",
+          "station": "GC-FID",
+          "unit": "mg/kg"
+        },
+        {
+          "test": "Dibenzyl Disulfide (DBDS)",
+          "method": "IEC 62697",
+          "station": "GC-ECD",
+          "unit": "mg/kg"
+        },
+        {
+          "test": "Passivator (Irgamet 39)",
+          "method": "IEC 60666",
+          "station": "Additives / Special Tests",
+          "unit": "mg/kg"
+        },
+        {
+          "test": "Polychlorinated Biphenyls (PCBs)",
+          "method": "IEC 61619",
+          "station": "GC-ECD",
+          "unit": "mg/kg"
+        },
+        {
+          "test": "Toluene",
+          "method": "ASTM D5580",
+          "station": "GC-FID",
+          "unit": "mg/kg"
+        },
+        {
+          "test": "H2S",
+          "method": "",
+          "station": "Additives / Special Tests",
+          "unit": ""
+        },
+        {
+          "test": "Total Mercaptan (RSH)",
+          "method": "UOP 163",
+          "station": "Physical / Chemistry",
+          "unit": "mg KOH/g"
+        },
+        {
+          "test": "Fingerprint",
+          "method": "",
+          "station": "Additives / Special Tests",
+          "unit": ""
+        },
+        {
+          "test": "Insulable Contamination",
+          "method": "",
+          "station": "Additives / Special Tests",
+          "unit": ""
+        },
+        {
+          "test": "Potentially Corrosive Sulfur (CCD)",
+          "method": "IEC 62535",
+          "station": "Corrosion",
+          "unit": "Pass/Fail"
+        },
+        {
+          "test": "Corrosive Sulfur",
+          "method": "ASTM D1275b",
+          "station": "Corrosion",
+          "unit": "Pass/Fail"
+        },
+        {
+          "test": "DP-value of Paper",
+          "method": "",
+          "station": "Furan",
+          "unit": ""
+        },
+        {
+          "test": "Flash Point (Closed Cup)",
+          "method": "ASTM D93",
+          "station": "Physical / Chemistry",
+          "unit": "°C"
+        },
+        {
+          "test": "Pour Point",
+          "method": "ASTM D97",
+          "station": "Physical / Chemistry",
+          "unit": "°C"
+        },
+        {
+          "test": "Particle Count ISO",
+          "method": "ISO 4406",
+          "station": "Additives / Special Tests",
+          "unit": "code"
+        },
+        {
+          "test": "Polycyclo aromatics PCA",
+          "method": "",
+          "station": "Additives / Special Tests",
+          "unit": ""
+        },
+        {
+          "test": "Varnish Test (MPC)",
+          "method": "",
+          "station": "Additives / Special Tests",
+          "unit": ""
+        },
+        {
+          "test": "Air Release",
+          "method": "",
+          "station": "Additives / Special Tests",
+          "unit": ""
+        },
+        {
+          "test": "Ruller Test",
+          "method": "",
+          "station": "Additives / Special Tests",
+          "unit": ""
+        },
+        {
+          "test": "Oxidation Stability (RPVOT)",
+          "method": "",
+          "station": "Additives / Special Tests",
+          "unit": ""
+        },
+        {
+          "test": "Demusibility Test",
+          "method": "",
+          "station": "Additives / Special Tests",
+          "unit": ""
+        },
+        {
+          "test": "Rust Prevention Test",
+          "method": "",
+          "station": "Additives / Special Tests",
+          "unit": ""
+        },
+        {
+          "test": "Rams-Bottom Carbon Residue",
+          "method": "",
+          "station": "Additives / Special Tests",
+          "unit": ""
+        },
+        {
+          "test": "Methanol",
+          "method": "",
+          "station": "Additives / Special Tests",
+          "unit": ""
+        },
+        {
+          "test": "Gassing Tendancy",
+          "method": "",
+          "station": "Additives / Special Tests",
+          "unit": ""
+        },
+        {
+          "test": "SF6",
+          "method": "",
+          "station": "Additives / Special Tests",
+          "unit": ""
+        },
+        {
+          "test": "Foaming Test",
+          "method": "",
+          "station": "Additives / Special Tests",
+          "unit": ""
+        },
+        {
+          "test": "Oxidation Satbility",
+          "method": "",
+          "station": "Additives / Special Tests",
+          "unit": ""
+        },
+        {
+          "test": "Ferrography",
+          "method": "",
+          "station": "Additives / Special Tests",
+          "unit": ""
+        },
+        {
+          "test": "Sediment & Soluble Sludge",
+          "method": "ASTM D1698",
+          "station": "Additives / Special Tests",
+          "unit": ""
+        },
+        {
+          "test": "Total Sulfur Content",
+          "method": "",
+          "station": "Additives / Special Tests",
+          "unit": "mg/kg"
+        },
+        {
+          "test": "Breakdown Voltage @2mm- AVG",
+          "method": "ASTM D1816",
+          "station": "Electrical",
+          "unit": "kV"
+        },
+        {
+          "test": "RSD% of BDV @2mm",
+          "method": "ASTM D1816",
+          "station": "Electrical",
+          "unit": "%"
+        },
+        {
+          "test": "Breakdown Voltage @2.54mm- AVG",
+          "method": "ASTM D877",
+          "station": "Electrical",
+          "unit": "kV"
+        },
+        {
+          "test": "RSD% of BDV @2.54mm",
+          "method": "ASTM D877",
+          "station": "Electrical",
+          "unit": "%"
+        }
+      ]
+    },
+    {
+      "id": "CUSTOM",
+      "name": "Custom — Select Tests",
+      "scope": "GENERAL",
+      "kind": "custom",
+      "tests": []
+    },
+    {
+      "id": "ARM_ROUTINE",
+      "name": "Aramco Routine",
+      "scope": "ARAMCO",
+      "kind": "client",
+      "tests": [
+        {
+          "test": "Dissolved Gas Analysis (DGA)",
+          "method": "",
+          "station": "DGA",
+          "unit": ""
+        },
+        {
+          "test": "Water Content KF @RT",
+          "method": "IEC 60814",
+          "station": "Water",
+          "unit": "mg/kg"
+        },
+        {
+          "test": "Transformer Oil Temperature",
+          "method": "-",
+          "station": "Additives / Special Tests",
+          "unit": "°C"
+        },
+        {
+          "test": "Water Content @20 °C",
+          "method": "IEC 60814",
+          "station": "Water",
+          "unit": "mg/kg"
+        },
+        {
+          "test": "Humidity in Cellulose",
+          "method": "IEC 60814",
+          "station": "Additives / Special Tests",
+          "unit": "%"
+        },
+        {
+          "test": "Total Acid Number",
+          "method": "ASTM D664",
+          "station": "Physical / Chemistry",
+          "unit": "mg KOH/g"
+        },
+        {
+          "test": "Interfacial Tension (IFT)",
+          "method": "ASTM D971",
+          "station": "Physical / Chemistry",
+          "unit": "mN/m"
+        },
+        {
+          "test": "Oil Quality Index",
+          "method": "calculation",
+          "station": "Additives / Special Tests",
+          "unit": ""
+        },
+        {
+          "test": "Power Factor @25°C/60Hz",
+          "method": "ASTM D924",
+          "station": "Electrical",
+          "unit": ""
+        },
+        {
+          "test": "Power Factor @100°C/60Hz",
+          "method": "ASTM D924",
+          "station": "Electrical",
+          "unit": ""
+        },
+        {
+          "test": "Breakdown Voltage @2.5mm- AVG",
+          "method": "IEC 60156",
+          "station": "Electrical",
+          "unit": "kV"
+        },
+        {
+          "test": "RSD% of BDV @2.5mm",
+          "method": "IEC 60156",
+          "station": "Electrical",
+          "unit": "%"
+        },
+        {
+          "test": "Color ASTM",
+          "method": "ASTM D1500",
+          "station": "Physical / Chemistry",
+          "unit": "ASTM Color"
+        },
+        {
+          "test": "Appearance",
+          "method": "ASTM D1524",
+          "station": "Physical / Chemistry",
+          "unit": ""
+        }
+      ]
+    },
+    {
+      "id": "ARM_FULL",
+      "name": "Aramco Full Test",
+      "scope": "ARAMCO",
+      "kind": "client",
+      "tests": [
+        {
+          "test": "Dissolved Gas Analysis (DGA)",
+          "method": "",
+          "station": "DGA",
+          "unit": ""
+        },
+        {
+          "test": "Water Content KF @RT",
+          "method": "IEC 60814",
+          "station": "Water",
+          "unit": "mg/kg"
+        },
+        {
+          "test": "Transformer Oil Temperature",
+          "method": "-",
+          "station": "Additives / Special Tests",
+          "unit": "°C"
+        },
+        {
+          "test": "Water Content @20 °C",
+          "method": "IEC 60814",
+          "station": "Water",
+          "unit": "mg/kg"
+        },
+        {
+          "test": "Humidity in Cellulose",
+          "method": "IEC 60814",
+          "station": "Additives / Special Tests",
+          "unit": "%"
+        },
+        {
+          "test": "Total Acid Number",
+          "method": "ASTM D664",
+          "station": "Physical / Chemistry",
+          "unit": "mg KOH/g"
+        },
+        {
+          "test": "Interfacial Tension (IFT)",
+          "method": "ASTM D971",
+          "station": "Physical / Chemistry",
+          "unit": "mN/m"
+        },
+        {
+          "test": "Oil Quality Index",
+          "method": "calculation",
+          "station": "Additives / Special Tests",
+          "unit": ""
+        },
+        {
+          "test": "Power Factor @25°C/60Hz",
+          "method": "ASTM D924",
+          "station": "Electrical",
+          "unit": ""
+        },
+        {
+          "test": "Power Factor @100°C/60Hz",
+          "method": "ASTM D924",
+          "station": "Electrical",
+          "unit": ""
+        },
+        {
+          "test": "Breakdown Voltage @2.5mm- AVG",
+          "method": "IEC 60156",
+          "station": "Electrical",
+          "unit": "kV"
+        },
+        {
+          "test": "RSD% of BDV @2.5mm",
+          "method": "IEC 60156",
+          "station": "Electrical",
+          "unit": "%"
+        },
+        {
+          "test": "Color ASTM",
+          "method": "ASTM D1500",
+          "station": "Physical / Chemistry",
+          "unit": "ASTM Color"
+        },
+        {
+          "test": "Appearance",
+          "method": "ASTM D1524",
+          "station": "Physical / Chemistry",
+          "unit": ""
+        },
+        {
+          "test": "Peroxide Number",
+          "method": "ASTM D3703",
+          "station": "Additives / Special Tests",
+          "unit": ""
+        },
+        {
+          "test": "pH",
+          "method": "",
+          "station": "Additives / Special Tests",
+          "unit": ""
+        },
+        {
+          "test": "Metals",
+          "method": "",
+          "station": "Additives / Special Tests",
+          "unit": ""
+        },
+        {
+          "test": "2-Furfural (2FAL)",
+          "method": "IEC 61198",
+          "station": "Furan",
+          "unit": "mg/kg"
+        },
+        {
+          "test": "Indirect DP-value",
+          "method": "Calculation",
+          "station": "Furan",
+          "unit": ""
+        },
+        {
+          "test": "Paper Lifetime Remaining",
+          "method": "Calculation",
+          "station": "Furan",
+          "unit": ""
+        },
+        {
+          "test": "Antioxidant (BHT)",
+          "method": "IEC 60666",
+          "station": "GC-FID",
+          "unit": "mg/kg"
+        },
+        {
+          "test": "Dibenzyl Disulfide (DBDS)",
+          "method": "IEC 62697",
+          "station": "GC-ECD",
+          "unit": "mg/kg"
+        },
+        {
+          "test": "Toluene",
+          "method": "ASTM D5580",
+          "station": "GC-FID",
+          "unit": "mg/kg"
+        },
+        {
+          "test": "H2S",
+          "method": "",
+          "station": "Additives / Special Tests",
+          "unit": ""
+        },
+        {
+          "test": "Total Mercaptan (RSH)",
+          "method": "UOP 163",
+          "station": "Physical / Chemistry",
+          "unit": "mg KOH/g"
+        },
+        {
+          "test": "Potentially Corrosive Sulfur (CCD)",
+          "method": "IEC 62535",
+          "station": "Corrosion",
+          "unit": "Pass/Fail"
+        },
+        {
+          "test": "Flash Point (Closed Cup)",
+          "method": "ASTM D93",
+          "station": "Physical / Chemistry",
+          "unit": "°C"
+        }
+      ]
+    },
+    {
+      "id": "ARM_TCA",
+      "name": "Aramco TCA",
+      "scope": "ARAMCO",
+      "kind": "client",
+      "tests": [
+        {
+          "test": "Dissolved Gas Analysis (DGA)",
+          "method": "",
+          "station": "DGA",
+          "unit": ""
+        },
+        {
+          "test": "Water Content KF @RT",
+          "method": "IEC 60814",
+          "station": "Water",
+          "unit": "mg/kg"
+        },
+        {
+          "test": "Transformer Oil Temperature",
+          "method": "-",
+          "station": "Additives / Special Tests",
+          "unit": "°C"
+        },
+        {
+          "test": "Water Content @20 °C",
+          "method": "IEC 60814",
+          "station": "Water",
+          "unit": "mg/kg"
+        },
+        {
+          "test": "Humidity in Cellulose",
+          "method": "IEC 60814",
+          "station": "Additives / Special Tests",
+          "unit": "%"
+        },
+        {
+          "test": "Total Acid Number",
+          "method": "ASTM D664",
+          "station": "Physical / Chemistry",
+          "unit": "mg KOH/g"
+        },
+        {
+          "test": "Interfacial Tension (IFT)",
+          "method": "ASTM D971",
+          "station": "Physical / Chemistry",
+          "unit": "mN/m"
+        },
+        {
+          "test": "Oil Quality Index",
+          "method": "calculation",
+          "station": "Additives / Special Tests",
+          "unit": ""
+        },
+        {
+          "test": "Power Factor @25°C/60Hz",
+          "method": "ASTM D924",
+          "station": "Electrical",
+          "unit": ""
+        },
+        {
+          "test": "Power Factor @100°C/60Hz",
+          "method": "ASTM D924",
+          "station": "Electrical",
+          "unit": ""
+        },
+        {
+          "test": "Breakdown Voltage @2.5mm- AVG",
+          "method": "IEC 60156",
+          "station": "Electrical",
+          "unit": "kV"
+        },
+        {
+          "test": "RSD% of BDV @2.5mm",
+          "method": "IEC 60156",
+          "station": "Electrical",
+          "unit": "%"
+        },
+        {
+          "test": "Color ASTM",
+          "method": "ASTM D1500",
+          "station": "Physical / Chemistry",
+          "unit": "ASTM Color"
+        },
+        {
+          "test": "Appearance",
+          "method": "ASTM D1524",
+          "station": "Physical / Chemistry",
+          "unit": ""
+        },
+        {
+          "test": "Peroxide Number",
+          "method": "ASTM D3703",
+          "station": "Additives / Special Tests",
+          "unit": ""
+        },
+        {
+          "test": "pH",
+          "method": "",
+          "station": "Additives / Special Tests",
+          "unit": ""
+        },
+        {
+          "test": "Metals",
+          "method": "",
+          "station": "Additives / Special Tests",
+          "unit": ""
+        },
+        {
+          "test": "2-Furfural (2FAL)",
+          "method": "IEC 61198",
+          "station": "Furan",
+          "unit": "mg/kg"
+        },
+        {
+          "test": "Indirect DP-value",
+          "method": "Calculation",
+          "station": "Furan",
+          "unit": ""
+        },
+        {
+          "test": "Paper Lifetime Remaining",
+          "method": "Calculation",
+          "station": "Furan",
+          "unit": ""
+        },
+        {
+          "test": "Antioxidant (BHT)",
+          "method": "IEC 60666",
+          "station": "GC-FID",
+          "unit": "mg/kg"
+        },
+        {
+          "test": "Dibenzyl Disulfide (DBDS)",
+          "method": "IEC 62697",
+          "station": "GC-ECD",
+          "unit": "mg/kg"
+        },
+        {
+          "test": "Toluene",
+          "method": "ASTM D5580",
+          "station": "GC-FID",
+          "unit": "mg/kg"
+        },
+        {
+          "test": "H2S",
+          "method": "",
+          "station": "Additives / Special Tests",
+          "unit": ""
+        },
+        {
+          "test": "Total Mercaptan (RSH)",
+          "method": "UOP 163",
+          "station": "Physical / Chemistry",
+          "unit": "mg KOH/g"
+        },
+        {
+          "test": "Potentially Corrosive Sulfur (CCD)",
+          "method": "IEC 62535",
+          "station": "Corrosion",
+          "unit": "Pass/Fail"
+        },
+        {
+          "test": "Flash Point (Closed Cup)",
+          "method": "ASTM D93",
+          "station": "Physical / Chemistry",
+          "unit": "°C"
+        }
+      ]
+    },
+    {
+      "id": "SEC_ROUTINE",
+      "name": "SEC Routine",
+      "scope": "SEC",
+      "kind": "client",
+      "tests": [
+        {
+          "test": "Dissolved Gas Analysis (DGA)",
+          "method": "",
+          "station": "DGA",
+          "unit": ""
+        },
+        {
+          "test": "Water Content KF @RT",
+          "method": "IEC 60814",
+          "station": "Water",
+          "unit": "mg/kg"
+        },
+        {
+          "test": "Transformer Oil Temperature",
+          "method": "-",
+          "station": "Additives / Special Tests",
+          "unit": "°C"
+        },
+        {
+          "test": "Water Content @20 °C",
+          "method": "IEC 60814",
+          "station": "Water",
+          "unit": "mg/kg"
+        },
+        {
+          "test": "Humidity in Cellulose",
+          "method": "IEC 60814",
+          "station": "Additives / Special Tests",
+          "unit": "%"
+        },
+        {
+          "test": "Total Acid Number",
+          "method": "ASTM D664",
+          "station": "Physical / Chemistry",
+          "unit": "mg KOH/g"
+        },
+        {
+          "test": "Interfacial Tension (IFT)",
+          "method": "ASTM D971",
+          "station": "Physical / Chemistry",
+          "unit": "mN/m"
+        },
+        {
+          "test": "Oil Quality Index",
+          "method": "calculation",
+          "station": "Additives / Special Tests",
+          "unit": ""
+        },
+        {
+          "test": "Breakdown Voltage @2.5mm- AVG",
+          "method": "IEC 60156",
+          "station": "Electrical",
+          "unit": "kV"
+        },
+        {
+          "test": "RSD% of BDV @2.5mm",
+          "method": "IEC 60156",
+          "station": "Electrical",
+          "unit": "%"
+        },
+        {
+          "test": "Color ASTM",
+          "method": "ASTM D1500",
+          "station": "Physical / Chemistry",
+          "unit": "ASTM Color"
+        },
+        {
+          "test": "Appearance",
+          "method": "ASTM D1524",
+          "station": "Physical / Chemistry",
+          "unit": ""
+        },
+        {
+          "test": "2-Furfural (2FAL)",
+          "method": "IEC 61198",
+          "station": "Furan",
+          "unit": "mg/kg"
+        },
+        {
+          "test": "Indirect DP-value",
+          "method": "Calculation",
+          "station": "Furan",
+          "unit": ""
+        },
+        {
+          "test": "Paper Lifetime Remaining",
+          "method": "Calculation",
+          "station": "Furan",
+          "unit": ""
+        }
+      ]
+    },
+    {
+      "id": "GPEL_PACKAGE",
+      "name": "GPEL Package",
+      "scope": "GPEL",
+      "kind": "client",
+      "tests": [
+        {
+          "test": "Dissolved Gas Analysis (DGA)",
+          "method": "",
+          "station": "DGA",
+          "unit": ""
+        },
+        {
+          "test": "Water Content KF @RT",
+          "method": "IEC 60814",
+          "station": "Water",
+          "unit": "mg/kg"
+        },
+        {
+          "test": "Transformer Oil Temperature",
+          "method": "-",
+          "station": "Additives / Special Tests",
+          "unit": "°C"
+        },
+        {
+          "test": "Water Content @20 °C",
+          "method": "IEC 60814",
+          "station": "Water",
+          "unit": "mg/kg"
+        },
+        {
+          "test": "Humidity in Cellulose",
+          "method": "IEC 60814",
+          "station": "Additives / Special Tests",
+          "unit": "%"
+        },
+        {
+          "test": "Total Acid Number",
+          "method": "ASTM D664",
+          "station": "Physical / Chemistry",
+          "unit": "mg KOH/g"
+        },
+        {
+          "test": "Interfacial Tension (IFT)",
+          "method": "ASTM D971",
+          "station": "Physical / Chemistry",
+          "unit": "mN/m"
+        },
+        {
+          "test": "Oil Quality Index",
+          "method": "calculation",
+          "station": "Additives / Special Tests",
+          "unit": ""
+        },
+        {
+          "test": "Density of Oil @20°C",
+          "method": "ASTM D7042",
+          "station": "Physical / Chemistry",
+          "unit": "g/cm³"
+        },
+        {
+          "test": "Dissipation Factor @90°C/60Hz",
+          "method": "IEC 60247",
+          "station": "Electrical",
+          "unit": ""
+        },
+        {
+          "test": "Breakdown Voltage @2.5mm- AVG",
+          "method": "IEC 60156",
+          "station": "Electrical",
+          "unit": "kV"
+        },
+        {
+          "test": "RSD% of BDV @2.5mm",
+          "method": "IEC 60156",
+          "station": "Electrical",
+          "unit": "%"
+        },
+        {
+          "test": "Color ASTM",
+          "method": "ASTM D1500",
+          "station": "Physical / Chemistry",
+          "unit": "ASTM Color"
+        },
+        {
+          "test": "Appearance",
+          "method": "ASTM D1524",
+          "station": "Physical / Chemistry",
+          "unit": ""
+        },
+        {
+          "test": "2-Furfural (2FAL)",
+          "method": "IEC 61198",
+          "station": "Furan",
+          "unit": "mg/kg"
+        },
+        {
+          "test": "Indirect DP-value",
+          "method": "Calculation",
+          "station": "Furan",
+          "unit": ""
+        },
+        {
+          "test": "Paper Lifetime Remaining",
+          "method": "Calculation",
+          "station": "Furan",
+          "unit": ""
+        },
+        {
+          "test": "Passivator (Irgamet 39)",
+          "method": "IEC 60666",
+          "station": "Additives / Special Tests",
+          "unit": "mg/kg"
+        },
+        {
+          "test": "Potentially Corrosive Sulfur (CCD)",
+          "method": "IEC 62535",
+          "station": "Corrosion",
+          "unit": "Pass/Fail"
+        },
+        {
+          "test": "Corrosive Sulfur",
+          "method": "ASTM D1275b",
+          "station": "Corrosion",
+          "unit": "Pass/Fail"
+        },
+        {
+          "test": "Particle Count ISO",
+          "method": "ISO 4406",
+          "station": "Additives / Special Tests",
+          "unit": "code"
+        },
+        {
+          "test": "Sediment & Soluble Sludge",
+          "method": "ASTM D1698",
+          "station": "Additives / Special Tests",
+          "unit": ""
+        }
+      ]
+    }
+  ],
+  "tests": [
+    {
+      "test": "Room Test Temperature",
+      "method": "-",
+      "station": "Additives / Special Tests",
+      "unit": "°C"
+    },
+    {
+      "test": "Room Test Humidity",
+      "method": "-",
+      "station": "Additives / Special Tests",
+      "unit": ""
+    },
+    {
+      "test": "Total Acid Number",
+      "method": "ASTM D664",
+      "station": "Physical / Chemistry",
+      "unit": "mg KOH/g"
+    },
+    {
+      "test": "Water Content KF @RT",
+      "method": "IEC 60814",
+      "station": "Water",
+      "unit": "mg/kg"
+    },
+    {
+      "test": "Transformer Oil Temperature",
+      "method": "-",
+      "station": "Additives / Special Tests",
+      "unit": "°C"
+    },
+    {
+      "test": "Water Content @20 °C",
+      "method": "IEC 60814",
+      "station": "Water",
+      "unit": "mg/kg"
+    },
+    {
+      "test": "Humidity in Cellulose",
+      "method": "IEC 60814",
+      "station": "Additives / Special Tests",
+      "unit": "%"
+    },
+    {
+      "test": "Interfacial Tension (IFT)",
+      "method": "ASTM D971",
+      "station": "Physical / Chemistry",
+      "unit": "mN/m"
+    },
+    {
+      "test": "Oil Quality Index",
+      "method": "calculation",
+      "station": "Additives / Special Tests",
+      "unit": ""
+    },
+    {
+      "test": "Breakdown Voltage @2.5mm- AVG",
+      "method": "IEC 60156",
+      "station": "Electrical",
+      "unit": "kV"
+    },
+    {
+      "test": "RSD% of BDV @2.5mm",
+      "method": "IEC 60156",
+      "station": "Electrical",
+      "unit": "%"
+    },
+    {
+      "test": "Breakdown Voltage @1mm- AVG",
+      "method": "ASTM D1816",
+      "station": "Electrical",
+      "unit": "kV"
+    },
+    {
+      "test": "RSD% of BDV @1mm",
+      "method": "ASTM D1816",
+      "station": "Electrical",
+      "unit": "%"
+    },
+    {
+      "test": "Breakdown Voltage @2mm- AVG",
+      "method": "ASTM D1816",
+      "station": "Electrical",
+      "unit": "kV"
+    },
+    {
+      "test": "RSD% of BDV @2mm",
+      "method": "ASTM D1816",
+      "station": "Electrical",
+      "unit": "%"
+    },
+    {
+      "test": "Breakdown Voltage @2.54mm- AVG",
+      "method": "ASTM D877",
+      "station": "Electrical",
+      "unit": "kV"
+    },
+    {
+      "test": "RSD% of BDV @2.54mm",
+      "method": "ASTM D877",
+      "station": "Electrical",
+      "unit": "%"
+    },
+    {
+      "test": "Power Factor @25°C/60Hz",
+      "method": "ASTM D924",
+      "station": "Electrical",
+      "unit": ""
+    },
+    {
+      "test": "Power Factor @100°C/60Hz",
+      "method": "ASTM D924",
+      "station": "Electrical",
+      "unit": ""
+    },
+    {
+      "test": "Dissipation Factor @90°C/60Hz",
+      "method": "IEC 60247",
+      "station": "Electrical",
+      "unit": ""
+    },
+    {
+      "test": "Resistivity @       °C/60Hz",
+      "method": "ASTM D1169",
+      "station": "Electrical",
+      "unit": "GΩ·m"
+    },
+    {
+      "test": "Peroxide Number",
+      "method": "ASTM D3703",
+      "station": "Additives / Special Tests",
+      "unit": ""
+    },
+    {
+      "test": "Antioxidant (BHT)",
+      "method": "IEC 60666",
+      "station": "GC-FID",
+      "unit": "mg/kg"
+    },
+    {
+      "test": "Color ASTM",
+      "method": "ASTM D1500",
+      "station": "Physical / Chemistry",
+      "unit": "ASTM Color"
+    },
+    {
+      "test": "Appearance",
+      "method": "ASTM D1524",
+      "station": "Physical / Chemistry",
+      "unit": ""
+    },
+    {
+      "test": "Flash Point (Closed Cup)",
+      "method": "ASTM D93",
+      "station": "Physical / Chemistry",
+      "unit": "°C"
+    },
+    {
+      "test": "Flash Point (Open Cup)",
+      "method": "ASTM D92",
+      "station": "Physical / Chemistry",
+      "unit": "°C"
+    },
+    {
+      "test": "5-Hydroxymethyl-2-furfural (5HMF)",
+      "method": "IEC 61198",
+      "station": "Furan",
+      "unit": "mg/kg"
+    },
+    {
+      "test": "2-Furfurylalcohol (2FOL)",
+      "method": "IEC 61198",
+      "station": "Furan",
+      "unit": "mg/kg"
+    },
+    {
+      "test": "2-Furfural (2FAL)",
+      "method": "IEC 61198",
+      "station": "Furan",
+      "unit": "mg/kg"
+    },
+    {
+      "test": "2-Acetylfuran (2ACF)",
+      "method": "IEC 61198",
+      "station": "Furan",
+      "unit": "mg/kg"
+    },
+    {
+      "test": "5-Methyl-2-furfural   (5MEF)",
+      "method": "IEC 61198",
+      "station": "Furan",
+      "unit": "mg/kg"
+    },
+    {
+      "test": "Total Furanic Compounds",
+      "method": "IEC 61198",
+      "station": "Furan",
+      "unit": "mg/kg"
+    },
+    {
+      "test": "Indirect DP-value",
+      "method": "Calculation",
+      "station": "Furan",
+      "unit": ""
+    },
+    {
+      "test": "Direct DP-value",
+      "method": "IEC 60450",
+      "station": "Furan",
+      "unit": ""
+    },
+    {
+      "test": "Paper Lifetime Remaining",
+      "method": "Calculation",
+      "station": "Furan",
+      "unit": ""
+    },
+    {
+      "test": "pH-value",
+      "method": "ASTM WK35536",
+      "station": "Additives / Special Tests",
+      "unit": ""
+    },
+    {
+      "test": "Dibenzyl Disulfide (DBDS)",
+      "method": "IEC 62697",
+      "station": "GC-ECD",
+      "unit": "mg/kg"
+    },
+    {
+      "test": "Toluene",
+      "method": "ASTM D5580",
+      "station": "GC-FID",
+      "unit": "mg/kg"
+    },
+    {
+      "test": "Hydrogen Sulfide Gas (H2S)",
+      "method": "UOP 163",
+      "station": "Additives / Special Tests",
+      "unit": ""
+    },
+    {
+      "test": "Total Mercaptan (RSH)",
+      "method": "UOP 163",
+      "station": "Physical / Chemistry",
+      "unit": "mg KOH/g"
+    },
+    {
+      "test": "ASTM Copper Corrosion (Cu Strip)",
+      "method": "ASTM D1275b",
+      "station": "Corrosion",
+      "unit": "1a–4c"
+    },
+    {
+      "test": "Corrosive Sulfur",
+      "method": "ASTM D1275b",
+      "station": "Corrosion",
+      "unit": "Pass/Fail"
+    },
+    {
+      "test": "Tarnish Level",
+      "method": "ASTM D130",
+      "station": "Corrosion",
+      "unit": ""
+    },
+    {
+      "test": "Potentially Corrosive Sulfur (CCD)",
+      "method": "IEC 62535",
+      "station": "Corrosion",
+      "unit": "Pass/Fail"
+    },
+    {
+      "test": "Passivator (Irgamet 39)",
+      "method": "IEC 60666",
+      "station": "Additives / Special Tests",
+      "unit": "mg/kg"
+    },
+    {
+      "test": "Passivator (TTA)",
+      "method": "IEC 60666",
+      "station": "Additives / Special Tests",
+      "unit": "mg/kg"
+    },
+    {
+      "test": "Passivator (BTA)",
+      "method": "IEC 60666",
+      "station": "Additives / Special Tests",
+      "unit": "mg/kg"
+    },
+    {
+      "test": "Density of Oil @RT",
+      "method": "ASTM D7042",
+      "station": "Physical / Chemistry",
+      "unit": "g/cm³"
+    },
+    {
+      "test": "Density of Oil @20°C",
+      "method": "ASTM D7042",
+      "station": "Physical / Chemistry",
+      "unit": "g/cm³"
+    },
+    {
+      "test": "Relative Density of Oil",
+      "method": "ASTM D7042",
+      "station": "Physical / Chemistry",
+      "unit": "g/cm³"
+    },
+    {
+      "test": "Sediment & Soluble Sludge",
+      "method": "ASTM D1698",
+      "station": "Additives / Special Tests",
+      "unit": ""
+    },
+    {
+      "test": "Polycyclic Aromatic Content (PCA%)",
+      "method": "IP 346",
+      "station": "Additives / Special Tests",
+      "unit": ""
+    },
+    {
+      "test": "Carbon Composition (Aromatic %)",
+      "method": "ASTM D2140",
+      "station": "Additives / Special Tests",
+      "unit": ""
+    },
+    {
+      "test": "Carbon Composition (Naphthenic %)",
+      "method": "ASTM D2140",
+      "station": "Additives / Special Tests",
+      "unit": ""
+    },
+    {
+      "test": "Carbon Composition (Paraffinic %)",
+      "method": "ASTM D2140",
+      "station": "Additives / Special Tests",
+      "unit": ""
+    },
+    {
+      "test": "Particle Count ISO",
+      "method": "ISO 4406",
+      "station": "Additives / Special Tests",
+      "unit": "code"
+    },
+    {
+      "test": "Particle Count NAS",
+      "method": "NAS 1638",
+      "station": "Additives / Special Tests",
+      "unit": "code"
+    },
+    {
+      "test": "Polychlorinated Biphenyls (PCBs)",
+      "method": "IEC 61619",
+      "station": "GC-ECD",
+      "unit": "mg/kg"
+    },
+    {
+      "test": "Viscosity @ 40 °C",
+      "method": "ASTM D7042",
+      "station": "Physical / Chemistry",
+      "unit": "mm²/s"
+    },
+    {
+      "test": "Viscosity @ -30 °C",
+      "method": "ASTM D7042",
+      "station": "Physical / Chemistry",
+      "unit": "mm²/s"
+    },
+    {
+      "test": "Viscosity @ 100 °C",
+      "method": "ASTM D7042",
+      "station": "Physical / Chemistry",
+      "unit": "mm²/s"
+    },
+    {
+      "test": "Relative Content of Dissolved Decay",
+      "method": "ASTM D6802",
+      "station": "Additives / Special Tests",
+      "unit": ""
+    },
+    {
+      "test": "Refractive Index",
+      "method": "",
+      "station": "Additives / Special Tests",
+      "unit": ""
+    },
+    {
+      "test": "Pour Point",
+      "method": "ASTM D97",
+      "station": "Physical / Chemistry",
+      "unit": "°C"
+    },
+    {
+      "test": "Oxidation Stability (Acidity @72h)",
+      "method": "ASTM D2440 IEC 61125",
+      "station": "Physical / Chemistry",
+      "unit": "mg KOH/g"
+    },
+    {
+      "test": "Oxidation Stability (Sludge @72h)",
+      "method": "",
+      "station": "Additives / Special Tests",
+      "unit": ""
+    },
+    {
+      "test": "Oxidation Stability (DDF 90°C @72h)",
+      "method": "",
+      "station": "Additives / Special Tests",
+      "unit": ""
+    },
+    {
+      "test": "Oxidation Stability (Acidity @164h)",
+      "method": "",
+      "station": "Physical / Chemistry",
+      "unit": "mg KOH/g"
+    },
+    {
+      "test": "Oxidation Stability (Sludge @164h)",
+      "method": "",
+      "station": "Additives / Special Tests",
+      "unit": ""
+    },
+    {
+      "test": "Oxidation Stability (DDF 90°C @164h)",
+      "method": "",
+      "station": "Additives / Special Tests",
+      "unit": ""
+    },
+    {
+      "test": "Oxidation Stability (Acidity @500h)",
+      "method": "",
+      "station": "Physical / Chemistry",
+      "unit": "mg KOH/g"
+    },
+    {
+      "test": "Oxidation Stability (Sludge @500h)",
+      "method": "",
+      "station": "Additives / Special Tests",
+      "unit": ""
+    },
+    {
+      "test": "Oxidation Stability (DDF 90°C @500h)",
+      "method": "",
+      "station": "Additives / Special Tests",
+      "unit": ""
+    },
+    {
+      "test": "Aluminum",
+      "method": "ASTM D5185 (ICP)\nASTM D7751 (EDXRF)",
+      "station": "Additives / Special Tests",
+      "unit": "mg/kg"
+    },
+    {
+      "test": "Barium",
+      "method": "",
+      "station": "Additives / Special Tests",
+      "unit": "mg/kg"
+    },
+    {
+      "test": "Boron",
+      "method": "",
+      "station": "Additives / Special Tests",
+      "unit": "mg/kg"
+    },
+    {
+      "test": "Calcium",
+      "method": "",
+      "station": "Additives / Special Tests",
+      "unit": "mg/kg"
+    },
+    {
+      "test": "Chromium (Cr)",
+      "method": "",
+      "station": "Additives / Special Tests",
+      "unit": "mg/kg"
+    },
+    {
+      "test": "Copper (Cu)",
+      "method": "",
+      "station": "Additives / Special Tests",
+      "unit": "mg/kg"
+    },
+    {
+      "test": "Iron (Fe)",
+      "method": "",
+      "station": "Additives / Special Tests",
+      "unit": "mg/kg"
+    },
+    {
+      "test": "Lead (Pb)",
+      "method": "ASTM D5185 (ICP)\nASTM D7751 (EDXRF)",
+      "station": "Additives / Special Tests",
+      "unit": "mg/kg"
+    },
+    {
+      "test": "Magnesium",
+      "method": "",
+      "station": "Additives / Special Tests",
+      "unit": "mg/kg"
+    },
+    {
+      "test": "Manganese",
+      "method": "",
+      "station": "Additives / Special Tests",
+      "unit": "mg/kg"
+    },
+    {
+      "test": "Molybdenum",
+      "method": "",
+      "station": "Additives / Special Tests",
+      "unit": "mg/kg"
+    },
+    {
+      "test": "Nickel (Ni)",
+      "method": "",
+      "station": "Additives / Special Tests",
+      "unit": "mg/kg"
+    },
+    {
+      "test": "Phosphorous",
+      "method": "",
+      "station": "Additives / Special Tests",
+      "unit": "mg/kg"
+    },
+    {
+      "test": "Potassium",
+      "method": "",
+      "station": "Additives / Special Tests",
+      "unit": "mg/kg"
+    },
+    {
+      "test": "Sodium",
+      "method": "",
+      "station": "Additives / Special Tests",
+      "unit": "mg/kg"
+    },
+    {
+      "test": "Silicon",
+      "method": "",
+      "station": "Additives / Special Tests",
+      "unit": "mg/kg"
+    },
+    {
+      "test": "Silver",
+      "method": "",
+      "station": "Additives / Special Tests",
+      "unit": "mg/kg"
+    },
+    {
+      "test": "Sulfur",
+      "method": "",
+      "station": "Additives / Special Tests",
+      "unit": "mg/kg"
+    },
+    {
+      "test": "Tin",
+      "method": "",
+      "station": "Additives / Special Tests",
+      "unit": "mg/kg"
+    },
+    {
+      "test": "Titanium",
+      "method": "",
+      "station": "Physical / Chemistry",
+      "unit": "mg/kg"
+    },
+    {
+      "test": "Vanadium",
+      "method": "",
+      "station": "Additives / Special Tests",
+      "unit": "mg/kg"
+    },
+    {
+      "test": "Zinc",
+      "method": "",
+      "station": "Additives / Special Tests",
+      "unit": "mg/kg"
+    },
+    {
+      "test": "Dissolved Gas Analysis (DGA)",
+      "method": "",
+      "station": "DGA",
+      "unit": ""
+    },
+    {
+      "test": "Water Content",
+      "method": "",
+      "station": "Water",
+      "unit": "mg/kg"
+    },
+    {
+      "test": "Interfaical Tension (IFT)]",
+      "method": "",
+      "station": "Physical / Chemistry",
+      "unit": "mN/m"
+    },
+    {
+      "test": "Oil Quality Index (OQIN)",
+      "method": "",
+      "station": "Additives / Special Tests",
+      "unit": ""
+    },
+    {
+      "test": "PF @25 °C / 60 Hz",
+      "method": "",
+      "station": "Electrical",
+      "unit": ""
+    },
+    {
+      "test": "PF @100 °C / 60 Hz",
+      "method": "",
+      "station": "Electrical",
+      "unit": ""
+    },
+    {
+      "test": "Breakdown Voltage (BDV)",
+      "method": "",
+      "station": "Electrical",
+      "unit": "kV"
+    },
+    {
+      "test": "Color",
+      "method": "",
+      "station": "Physical / Chemistry",
+      "unit": "ASTM Color"
+    },
+    {
+      "test": "pH",
+      "method": "",
+      "station": "Additives / Special Tests",
+      "unit": ""
+    },
+    {
+      "test": "Metals",
+      "method": "",
+      "station": "Additives / Special Tests",
+      "unit": ""
+    },
+    {
+      "test": "Furanic Compounds",
+      "method": "",
+      "station": "Furan",
+      "unit": "mg/kg"
+    },
+    {
+      "test": "BHT",
+      "method": "",
+      "station": "GC-FID",
+      "unit": "mg/kg"
+    },
+    {
+      "test": "DBDS",
+      "method": "",
+      "station": "GC-ECD",
+      "unit": "mg/kg"
+    },
+    {
+      "test": "H2S",
+      "method": "",
+      "station": "Additives / Special Tests",
+      "unit": ""
+    },
+    {
+      "test": "RSH (Total Mercaptanes)",
+      "method": "",
+      "station": "Physical / Chemistry",
+      "unit": "mg KOH/g"
+    },
+    {
+      "test": "Flash Point",
+      "method": "",
+      "station": "Physical / Chemistry",
+      "unit": "°C"
+    },
+    {
+      "test": "Density @   20   °C",
+      "method": "",
+      "station": "Physical / Chemistry",
+      "unit": "g/cm³"
+    },
+    {
+      "test": "Dissipation Factor @ 90 °C / 60Hz",
+      "method": "",
+      "station": "Electrical",
+      "unit": ""
+    },
+    {
+      "test": "Passivator",
+      "method": "",
+      "station": "Additives / Special Tests",
+      "unit": "mg/kg"
+    },
+    {
+      "test": "Particle Count",
+      "method": "",
+      "station": "Additives / Special Tests",
+      "unit": "code"
+    },
+    {
+      "test": "Sediment and Sludge",
+      "method": "",
+      "station": "Additives / Special Tests",
+      "unit": ""
+    },
+    {
+      "test": "Density @      °C",
+      "method": "",
+      "station": "Physical / Chemistry",
+      "unit": "g/cm³"
+    },
+    {
+      "test": "Resistivity @   °C",
+      "method": "",
+      "station": "Electrical",
+      "unit": "GΩ·m"
+    },
+    {
+      "test": "Refrctive Index",
+      "method": "",
+      "station": "Additives / Special Tests",
+      "unit": ""
+    },
+    {
+      "test": "Viscosity @40 °C",
+      "method": "",
+      "station": "Physical / Chemistry",
+      "unit": "mm²/s"
+    },
+    {
+      "test": "Viscosity @100 °C",
+      "method": "",
+      "station": "Physical / Chemistry",
+      "unit": "mm²/s"
+    },
+    {
+      "test": "Viscosity Index",
+      "method": "",
+      "station": "Physical / Chemistry",
+      "unit": "mm²/s"
+    },
+    {
+      "test": "Total Base Number",
+      "method": "",
+      "station": "Additives / Special Tests",
+      "unit": ""
+    },
+    {
+      "test": "PCB",
+      "method": "",
+      "station": "GC-ECD",
+      "unit": "mg/kg"
+    },
+    {
+      "test": "Fingerprint",
+      "method": "",
+      "station": "Additives / Special Tests",
+      "unit": ""
+    },
+    {
+      "test": "Insulable Contamination",
+      "method": "",
+      "station": "Additives / Special Tests",
+      "unit": ""
+    },
+    {
+      "test": "DP-value of Paper",
+      "method": "",
+      "station": "Furan",
+      "unit": ""
+    },
+    {
+      "test": "Polycyclo aromatics PCA",
+      "method": "",
+      "station": "Additives / Special Tests",
+      "unit": ""
+    },
+    {
+      "test": "Varnish Test (MPC)",
+      "method": "",
+      "station": "Additives / Special Tests",
+      "unit": ""
+    },
+    {
+      "test": "Air Release",
+      "method": "",
+      "station": "Additives / Special Tests",
+      "unit": ""
+    },
+    {
+      "test": "Ruller Test",
+      "method": "",
+      "station": "Additives / Special Tests",
+      "unit": ""
+    },
+    {
+      "test": "Oxidation Stability (RPVOT)",
+      "method": "",
+      "station": "Additives / Special Tests",
+      "unit": ""
+    },
+    {
+      "test": "Demusibility Test",
+      "method": "",
+      "station": "Additives / Special Tests",
+      "unit": ""
+    },
+    {
+      "test": "Rust Prevention Test",
+      "method": "",
+      "station": "Additives / Special Tests",
+      "unit": ""
+    },
+    {
+      "test": "Rams-Bottom Carbon Residue",
+      "method": "",
+      "station": "Additives / Special Tests",
+      "unit": ""
+    },
+    {
+      "test": "Methanol",
+      "method": "",
+      "station": "Additives / Special Tests",
+      "unit": ""
+    },
+    {
+      "test": "Gassing Tendancy",
+      "method": "",
+      "station": "Additives / Special Tests",
+      "unit": ""
+    },
+    {
+      "test": "SF6",
+      "method": "",
+      "station": "Additives / Special Tests",
+      "unit": ""
+    },
+    {
+      "test": "Foaming Test",
+      "method": "",
+      "station": "Additives / Special Tests",
+      "unit": ""
+    },
+    {
+      "test": "Oxidation Satbility",
+      "method": "",
+      "station": "Additives / Special Tests",
+      "unit": ""
+    },
+    {
+      "test": "Ferrography",
+      "method": "",
+      "station": "Additives / Special Tests",
+      "unit": ""
+    },
+    {
+      "test": "Total Sulfur Content",
+      "method": "",
+      "station": "Additives / Special Tests",
+      "unit": "mg/kg"
+    }
+  ],
+  "clients": [
+    {
+      "id": "GENERAL",
+      "name": "General / No Client",
+      "code": "GEN",
+      "active": true
+    },
+    {
+      "id": "ARAMCO",
+      "name": "Saudi Aramco",
+      "code": "ARM",
+      "active": true
+    },
+    {
+      "id": "SEC",
+      "name": "Saudi Electricity Company",
+      "code": "SEC",
+      "active": true
+    },
+    {
+      "id": "GPEL",
+      "name": "GPEL",
+      "code": "GPEL",
+      "active": true
+    },
+    {
+      "id": "OTHER",
+      "name": "Other Client",
+      "code": "OTH",
+      "active": true
+    }
+  ]
+}

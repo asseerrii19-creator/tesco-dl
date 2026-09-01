@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}Collect New Sample{% endblock %}
+{% block content %}
+<div class="page-head"><div><span class="eyebrow">FIELD SAMPLING</span><h1>Collect New Sample</h1></div><div><span class="network-chip" data-network-state>Online</span></div></div><div id="offlineQueuePanel" class="alert info" hidden></div>
+<form method="post" action="/field/new" enctype="multipart/form-data" class="panel" id="fieldForm"><input type="hidden" name="assignment_id" value="{{ assignment.id if assignment else '' }}">{% if assignment %}<div class="notice"><b>Assigned work:</b> {{ assignment.order.order_number }} / {{ assignment.assignment_code }} · {{ assignment.order.client.name }} · {{ assignment.source_party }}</div>{% endif %}
+<h2>Commercial reference</h2>
+<div class="form-grid">
+<label>Client<select name="client_id" id="clientId" required><option value="">Select client</option>{% for c in clients %}<option value="{{ c.id }}" {% if assignment and c.id == assignment.order.client_id %}selected{% endif %}>{{ c.code }} — {{ c.name }}</option>{% endfor %}</select></label>
+<label>Quotation<select name="quotation_id" id="quotationId"><option value="">Not selected</option>{% for q in quotes %}<option value="{{ q.id }}" data-client="{{ q.client_id }}" {% if assignment and assignment.order.quotation_id == q.id %}selected{% endif %}>{{ q.number }}</option>{% endfor %}</select></label>
+<label>Purchase Order<select name="purchase_order_id" id="poId"><option value="">Not selected</option>{% for p in pos %}<option value="{{ p.id }}" data-client="{{ p.client_id }}" {% if assignment and assignment.order.purchase_order_id == p.id %}selected{% endif %}>{{ p.number }}</option>{% endfor %}</select></label>
+<label>Client sample reference<input name="client_sample_reference" placeholder="Optional client reference"></label>
+</div>
+<h2>Equipment and exact location</h2>
+<div class="form-grid">
+<label>Existing asset<select name="existing_asset_id" id="existingAsset"><option value="">Create / enter new asset</option>{% for a in assets %}<option value="{{ a.id }}" data-client="{{ a.client_id }}" {% if assignment and assignment.asset_id == a.id %}selected{% endif %}>{{ a.asset_code }} — {{ a.serial_number }} — {{ a.station_name }}</option>{% endfor %}</select></label>
+<label>Asset code<input name="asset_code" placeholder="e.g. SEC-DMM-TR-021"></label>
+<label>Serial number<input name="serial_number"></label>
+<label>Equipment type<select name="equipment_type"><option>Power Transformer</option><option>Distribution Transformer</option><option>OLTC</option><option>Instrument Transformer</option><option>Bushing</option><option>Reactor</option><option>Other</option></select></label>
+<label>Manufacturer<input name="manufacturer"></label>
+<label>Station / site name<input name="station_name"></label>
+<label>Exact asset location<input name="asset_location_label" placeholder="Bay, feeder, transformer position"></label>
+<label>Voltage (kV)<input name="voltage_kv" inputmode="decimal"></label>
+<label>Rated power (MVA)<input name="rated_mva" inputmode="decimal"></label>
+</div>
+<div class="gps-box">
+  <div><strong>GPS location</strong><p>Capture the exact transformer position from the iPad or phone.</p></div>
+  <button type="button" class="secondary" id="captureGps">Capture GPS</button>
+  <label>Latitude<input name="gps_latitude" id="gpsLat" readonly></label>
+  <label>Longitude<input name="gps_longitude" id="gpsLon" readonly></label>
+  <label>Accuracy (m)<input name="gps_accuracy_m" id="gpsAcc" readonly></label>
+  <span id="gpsStatus" class="muted">Not captured</span>
+</div>
+<h2>Sampling information</h2>
+<div class="form-grid">
+<label>Sample date & time<input type="datetime-local" name="sample_date_time" required></label>
+<label>Sampling point<select name="sampling_point" required><option {% if assignment and assignment.sampling_point == 'Main Tank Bottom' %}selected{% endif %}>Main Tank Bottom</option><option>Main Tank Top</option><option>OLTC</option><option>Bushing</option><option>Drum / Tote</option><option>Other</option></select></label>
+<label>Test package<select name="requested_package" required>{% for package_name in package_names %}<option {% if assignment and assignment.requested_package == package_name %}selected{% elif not assignment and package_name == 'Routine Test' %}selected{% endif %}>{{ package_name }}</option>{% endfor %}</select></label>
+<label>Containers<input type="number" name="container_count" value="{{ assignment.container_count if assignment else 1 }}" min="1" max="20"></label>
+<label>Oil temperature (°C)<input name="oil_temperature_c" inputmode="decimal"></label>
+<label>Ambient temperature (°C)<input name="ambient_temperature_c" inputmode="decimal"></label>
+<label>Ambient humidity (%)<input name="ambient_humidity_pct" inputmode="decimal"></label>
+<label class="wide">Field notes<textarea name="field_notes" rows="3"></textarea></label>
+</div>
+<h2>Photo evidence</h2>
+<p class="muted">Recommended: nameplate, transformer overview, sampling valve, bottle/tag, abnormal condition or leak.</p>
+<div id="photoRows">
+  <div class="photo-row"><select name="photo_kind"><option>Nameplate</option><option>Transformer Overview</option><option>Sampling Valve</option><option>Sample Bottle</option><option>Leak / Abnormality</option><option>General</option></select><input type="file" name="photos" accept="image/*" capture="environment"></div>
+</div>
+<button type="button" class="secondary" id="addPhoto">+ Add another photo</button>
+<div class="actions"><button type="submit" id="submitSample">Submit and Generate Barcode</button><button type="button" class="secondary" id="syncOfflineNow">Sync Offline Queue</button><span class="muted" id="fieldSaveStatus">Draft and photo queue are stored on this device when offline.</span></div><div id="offlineReceipt" class="panel" hidden></div>
+</form>
+{% endblock %}
+{% block scripts %}<script src="/static/field-form.js"></script>{% endblock %}

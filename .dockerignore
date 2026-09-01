@@ -1,0 +1,11 @@
+.git
+__pycache__
+*.pyc
+.pytest_cache
+app/data/*.db
+app/data/uploads/*
+app/data/barcodes/*
+!app/data/uploads/.gitkeep
+!app/data/barcodes/.gitkeep
+*.zip
+*.tar.gz

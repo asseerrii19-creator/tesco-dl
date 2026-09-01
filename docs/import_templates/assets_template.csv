@@ -1,0 +1,2 @@
+client_code,asset_code,serial_number,equipment_type,manufacturer,voltage_kv,rated_mva,station_name,asset_location_label,latitude,longitude
+SEC,SEC-DMM-TR-001,SN-EXAMPLE-001,Power Transformer,Manufacturer,132,100,Dammam West Substation,Bay 4 / Main Transformer,26.4207,50.0888

@@ -1,0 +1,47 @@
+services:
+  db:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-tsco_platform}
+      POSTGRES_USER: ${POSTGRES_USER:-tsco}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-tsco} -d ${POSTGRES_DB:-tsco_platform}"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+  web:
+    build: .
+    restart: unless-stopped
+    environment:
+      APP_ENV: ${APP_ENV:-uat}
+      APP_SECRET: ${APP_SECRET:?Set APP_SECRET in .env}
+      DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-tsco}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB:-tsco_platform}
+      LMS_MODE: ${LMS_MODE:-mock}
+      LMS_API_BASE_URL: ${LMS_API_BASE_URL:-}
+      LMS_API_TOKEN: ${LMS_API_TOKEN:-}
+      SEED_DEMO_DATA: ${SEED_DEMO_DATA:-true}
+      SHOW_DEMO_ACCOUNTS: ${SHOW_DEMO_ACCOUNTS:-false}
+      ENABLE_PUBLIC_TRACKING: ${ENABLE_PUBLIC_TRACKING:-false}
+      BOOTSTRAP_ADMIN_EMAIL: ${BOOTSTRAP_ADMIN_EMAIL:-admin@tsco.local}
+      BOOTSTRAP_ADMIN_PASSWORD: ${BOOTSTRAP_ADMIN_PASSWORD:?Set BOOTSTRAP_ADMIN_PASSWORD in .env}
+      REQUIRE_BOOTSTRAP_PASSWORD_CHANGE: ${REQUIRE_BOOTSTRAP_PASSWORD_CHANGE:-true}
+      BOOTSTRAP_ADMIN_NAME: ${BOOTSTRAP_ADMIN_NAME:-System Administrator}
+      ENABLE_API_DOCS: ${ENABLE_API_DOCS:-true}
+      PUBLIC_BASE_URL: ${PUBLIC_BASE_URL:-http://localhost:8000}
+      RUN_DATABASE_MIGRATIONS: ${RUN_DATABASE_MIGRATIONS:-true}
+    ports:
+      - "${APP_PORT:-8000}:8000"
+    volumes:
+      - uploads:/app/app/data/uploads
+      - barcodes:/app/app/data/barcodes
+    depends_on:
+      db:
+        condition: service_healthy
+volumes:
+  pgdata:
+  uploads:
+  barcodes:

@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>{% block title %}TSCO Digital Laboratory Platform{% endblock %}</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <link rel="manifest" href="/static/manifest.webmanifest">
+  <meta name="theme-color" content="#0b263f">
+  <meta name="color-scheme" content="light">
+</head>
+<body class="{% if user %}authenticated{% else %}public-page{% endif %}">
+{% macro item(href, label, icon, match=None, section=None) -%}
+  {% set current = request.url.path %}
+  {% set current_section = request.query_params.get('section','') %}
+  <a class="side-link {% if section and current == '/lab/operations' and current_section == section %}active{% elif not section and ((match and current.startswith(match)) or (not match and current == href.split('?')[0])) %}active{% endif %}" href="{{ href }}">
+    <span class="side-icon" aria-hidden="true">{{ icon }}</span><span>{{ label }}</span>
+  </a>
+{%- endmacro %}
+
+{% if user %}
+<div class="app-shell">
+  <aside class="sidebar" id="appSidebar" aria-label="Platform navigation">
+    <a class="side-brand" href="/">
+      <span class="brand-emblem">TSCO</span>
+      <span><b>Digital Laboratory</b><small>Operations Platform</small></span>
+    </a>
+
+    <div class="site-context">
+      <span class="site-dot"></span>
+      <div><small>Site</small><b>{{ user.site.name if user.site else 'Corporate' }}</b></div>
+    </div>
+
+    <nav class="side-nav">
+      <div class="nav-group">
+        <span class="nav-label">Workspace</span>
+        {% if user.role in ['field_sampler','client_sampler','client_operations'] %}{{ item('/field','My Field Work','⌖','/field') }}{% endif %}
+        {% if user.role == 'operations_manager' %}{{ item('/operations','Sampling Operations','◫','/operations') }}{% endif %}
+        {% if user.role == 'sampling_supervisor' %}{{ item('/sampling-supervision','Sampling Supervision','◎','/sampling-supervision') }}{% endif %}
+        {% if user.role == 'data_entry' %}{{ item('/intake','Data Entry Review','✓','/intake') }}{% endif %}
+        {% if user.role == 'sample_receiving' %}{{ item('/receiving','Sample Receiving','▣','/receiving') }}{% endif %}
+        {% if user.role == 'client' %}{{ item('/client','Client Dashboard','◉','/client') }}{% endif %}
+        {% if user.role in ['management','technical_manager'] %}{{ item('/management','Management Overview','▥','/management') }}{% endif %}
+        {% if user.role == 'system_admin' %}{{ item('/admin','Platform Overview','▦','/admin') }}{% endif %}
+      </div>
+
+      {% if user.role in ['operations_manager','sampling_supervisor','technical_manager','management','system_admin'] %}
+      <div class="nav-group">
+        <span class="nav-label">Sample Intake</span>
+        {% if user.role in ['operations_manager','technical_manager','system_admin'] %}{{ item('/operations','Sampling Orders','◫','/operations') }}{% endif %}
+        {% if user.role in ['sampling_supervisor','operations_manager','technical_manager','system_admin'] %}{{ item('/sampling-supervision','Assignments','◎','/sampling-supervision') }}{% endif %}
+        {% if user.role == 'system_admin' %}{{ item('/field','Field Capture','⌖','/field') }}{% endif %}
+        {% if user.role in ['technical_manager','system_admin'] %}{{ item('/intake','Data Entry','✓','/intake') }}{{ item('/receiving','Receiving','▣','/receiving') }}{% endif %}
+      </div>
+      {% endif %}
+
+      {% if user.role in ['lab_technician','senior_chemist','quality','technical_manager','management','system_admin'] %}
+      <div class="nav-group">
+        <span class="nav-label">Laboratory</span>
+        {% if user.role in ['senior_chemist','quality','technical_manager','management','system_admin'] %}{{ item('/lab/operations?section=dashboard','Operations Overview','▦',None,'dashboard') }}{% endif %}
+        {{ item('/lab/operations?section=labprogress','Laboratory Progress','◷',None,'labprogress') }}
+        {% if user.role in ['senior_chemist','technical_manager','system_admin'] %}{{ item('/lab/operations?section=supervisor','Technical Supervision','◆',None,'supervisor') }}{% endif %}
+        {% if user.role in ['senior_chemist','technical_manager','system_admin'] %}{{ item('/lab/operations?section=batch','Samples & Batches','▤',None,'batch') }}{% endif %}
+        {% if user.role in ['lab_technician','senior_chemist','technical_manager','system_admin'] %}{{ item('/lab/operations?section=workstations','Test Workstations','⚗',None,'workstations') }}{% endif %}
+        {% if user.role in ['senior_chemist','quality','technical_manager','management','system_admin'] %}{{ item('/lab/operations?section=finalreport','Reports','▧',None,'finalreport') }}{% endif %}
+        {% if user.role in ['lab_technician','senior_chemist','quality','technical_manager','system_admin'] %}{{ item('/lab/operations?section=retained','Retained Samples','▱',None,'retained') }}{% endif %}
+        {% if user.role in ['lab_technician','senior_chemist','quality','technical_manager','system_admin'] %}{{ item('/lab/operations?section=quality','Quality Control','◇',None,'quality') }}{% endif %}
+        {{ item('/lab/operations?section=knowledge','Methods & Procedures','▰',None,'knowledge') }}
+        {{ item('/documents','Controlled Documents','▣','/documents') }}
+        {% if user.role in ['senior_chemist','quality','technical_manager','management','system_admin'] %}{{ item('/lab/operations?section=tracking','Operations Records','≡',None,'tracking') }}{% endif %}
+        {% if user.role in ['technical_manager','system_admin'] %}{{ item('/lab/operations?section=general','Laboratory Settings','⚙',None,'general') }}{% endif %}
+      </div>
+      {% endif %}
+
+      {% if user.role in ['senior_chemist','quality','technical_manager','management','system_admin'] %}
+      <div class="nav-group">
+        <span class="nav-label">Review & Control</span>
+        {% if user.role in ['senior_chemist','quality','technical_manager','system_admin'] %}{{ item('/assessment','Technical Assessment','△','/assessment') }}{% endif %}
+        {% if user.role in ['management','technical_manager','senior_chemist','system_admin'] %}{{ item('/management','Management Dashboard','▥','/management') }}{% endif %}
+      </div>
+      {% endif %}
+
+      {% if user.role == 'system_admin' %}
+      <div class="nav-group">
+        <span class="nav-label">Administration</span>
+        {{ item('/admin/master-data','Master Data Center','▦','/admin/master-data') }}
+        {{ item('/admin/sites','Sites & Laboratories','⌂','/admin/sites') }}
+        {{ item('/admin/hierarchy','Organization Hierarchy','⌘','/admin/hierarchy') }}
+        {{ item('/admin/clients','Companies','◌','/admin/clients') }}
+        {{ item('/admin/users','Users & Access','♙','/admin/users') }}
+        {{ item('/admin/commercial','Quotation & PO','▨','/admin/commercial') }}
+        {{ item('/admin/assets','Asset Master','⬡','/admin/assets') }}
+        {{ item('/admin/documents','Controlled Documents','▣','/admin/documents') }}
+        {{ item('/admin/test-packages','Test Packages','⚗','/admin/test-packages') }}
+        {{ item('/admin/workflows','Workflow & Approvals','⇄','/admin/workflows') }}
+        {{ item('/admin/integrations','Integration Control','⇆','/admin/integrations') }}
+        {{ item('/admin/import','Bulk Import','⇧','/admin/import') }}
+        {{ item('/admin/audit','Audit Log','⌁','/admin/audit') }}
+      </div>
+      {% endif %}
+    </nav>
+
+    <div class="sidebar-foot">
+      <div class="user-card">
+        <span class="avatar">{{ user.full_name[:1]|upper }}</span>
+        <div><b>{{ user.full_name }}</b><small>{{ user.role.replace('_',' ')|title }}</small></div>
+      </div>
+      <form method="post" action="/logout"><button class="signout-button" type="submit">Sign out</button></form>
+    </div>
+  </aside>
+
+  <section class="app-main">
+    <header class="app-topbar">
+      <button class="menu-button" id="menuButton" type="button" aria-label="Open navigation">☰</button>
+      <div class="topbar-title"><b id="platformTopbarTitle">{% block topbar_title %}TSCO Digital Laboratory Platform{% endblock %}</b><small id="platformTopbarSubtitle">{% block topbar_subtitle %}{{ user.site.laboratory_name if user and user.site else 'Laboratory Operations' }}{% endblock %}</small></div>
+      <div class="topbar-actions"><a class="icon-button" href="/change-password" title="Account settings">⚙</a></div>
+    </header>
+    <main class="content-area">{% block content %}{% endblock %}</main>
+  </section>
+</div>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+{% else %}
+<header class="public-header">
+  <a class="public-brand" href="/welcome"><span class="brand-emblem">TSCO</span><span><b>Digital Laboratory Platform</b><small>Laboratory Operations</small></span></a>
+</header>
+<main class="public-content">{% block public_content %}{% block content_public_fallback %}{% endblock %}{% endblock %}</main>
+<footer class="public-footer">TSCO Digital Laboratory Platform</footer>
+{% endif %}
+
+<script src="/static/app.js"></script>
+{% block scripts %}{% endblock %}
+</body>
+</html>

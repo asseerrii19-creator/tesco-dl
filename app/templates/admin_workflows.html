@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Workflow & Approvals{% endblock %}
+{% block content %}
+<div class="page-head"><div><span class="eyebrow">MASTER DATA</span><h1>Workflow & Approval Configuration</h1><p class="muted">Publish controlled workflow versions without changing application code.</p></div><a class="button secondary" href="/admin/master-data">Master Data</a></div>
+{% if ok %}<div class="alert success">{{ok}}</div>{% endif %}{% if error %}<div class="alert danger">{{error}}</div>{% endif %}
+<section class="panel"><h2>Publish Workflow Version</h2><form method="post" action="/admin/workflows" class="stack"><div class="form-grid"><label>Code<input name="code" value="LAB-SAMPLE-LIFECYCLE" required></label><label>Name<input name="name" value="Integrated Sample Lifecycle" required></label><label>Sample type<input name="sample_type" value="TRANSFORMER OIL"></label><label>Site scope<select name="site_id"><option value="">Corporate / Default</option>{% for s in sites %}<option value="{{s.id}}">{{s.code}} — {{s.name}}</option>{% endfor %}</select></label></div><label>Steps <small>step key | label | responsible role | flags (approval,terminal)</small><textarea name="steps" rows="11" required>sampling_order | Sampling Order | operations_manager |
+supervisor_assignment | Supervisor Assignment | sampling_supervisor |
+field_capture | Field Sampling & Capture | field_sampler |
+data_entry | Data Entry Verification | data_entry |
+lms_registration | LMS Registration | data_entry |
+receiving | Physical Receiving | sample_receiving |
+laboratory | Laboratory Operations | lab_technician |
+technical_review | Technical Review | senior_chemist | approval
+report_release | Report Release | technical_manager | approval,terminal</textarea></label><button>Publish New Version</button></form></section>
+<section class="panel"><h2>Workflow Register</h2><div class="table-wrap"><table><thead><tr><th>Scope</th><th>Code</th><th>Version</th><th>Steps</th><th>Status</th><th></th></tr></thead><tbody>{% for f in flows %}<tr><td>{{f.site.code if f.site else 'Corporate'}}</td><td><b>{{f.code}}</b><br><small>{{f.name}}</small></td><td>v{{f.version}}</td><td>{{f.steps|length}}</td><td>{{'Active' if f.active else 'Inactive'}}</td><td><details><summary>View</summary><pre class="code-block">{{f.steps_text}}</pre><form method="post" action="/admin/workflows/{{f.id}}/toggle"><button class="secondary">{{'Disable' if f.active else 'Activate'}}</button></form></details></td></tr>{% endfor %}</tbody></table></div></section>
+<section class="panel"><h2>Approval Policies</h2><form method="post" action="/admin/workflows/approval-policies" class="stack"><div class="form-grid"><label>Code<input name="code" value="REPORT-RELEASE" required></label><label>Name<input name="name" value="Technical Report Release" required></label><label>Entity type<input name="entity_type" value="SAMPLE_REPORT"></label><label>Site scope<select name="site_id"><option value="">Corporate / Default</option>{% for s in sites %}<option value="{{s.id}}">{{s.code}} — {{s.name}}</option>{% endfor %}</select></label></div><label>Stages <small>stage | role</small><textarea name="stages" rows="5">Result Entry | lab_technician
+Technical Review | senior_chemist
+Quality / Technical Approval | technical_manager
+Report Release | technical_manager</textarea></label><button>Save Policy</button></form><div class="table-wrap"><table><thead><tr><th>Scope</th><th>Policy</th><th>Entity</th><th>Stages</th></tr></thead><tbody>{% for p in policies %}<tr><td>{{p.site.code if p.site else 'Corporate'}}</td><td><b>{{p.code}}</b><br><small>{{p.name}}</small></td><td>{{p.entity_type}}</td><td><pre class="code-block">{{p.stages_text}}</pre></td></tr>{% endfor %}</tbody></table></div></section>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}Platform Overview{% endblock %}
+{% block content %}
+<div class="page-head"><div><span class="eyebrow">ENTERPRISE OPERATIONS</span><h1>Platform Overview</h1></div></div>
+
+<div class="grid cards-4 overview-metrics">
+  <a class="metric link-metric" href="/operations"><span>Sampling Orders</span><strong>{{ counts.orders }}</strong><small>{{ counts.open_orders }} open</small></a>
+  <a class="metric link-metric" href="/intake"><span>Samples</span><strong>{{ counts.samples }}</strong><small>{{ counts.intake_pending }} pending intake</small></a>
+  <a class="metric link-metric" href="/lab/operations?section=labprogress"><span>Laboratory</span><strong>{{ counts.lab_active }}</strong><small>active samples</small></a>
+  <a class="metric link-metric" href="/assessment"><span>Technical Review</span><strong>{{ counts.technical_review }}</strong><small>awaiting decision</small></a>
+</div>
+
+<section class="panel module-launch-panel">
+  <div class="section-head"><h2>Operational Modules</h2></div>
+  <div class="module-launch-grid">
+    <a href="/operations"><span class="launch-icon">01</span><div><b>Sampling Orders</b><small>Create and manage client sampling work.</small></div></a>
+    <a href="/sampling-supervision"><span class="launch-icon">02</span><div><b>Sampling Supervision</b><small>Assign and monitor field sampling.</small></div></a>
+    <a href="/field"><span class="launch-icon">03</span><div><b>Field Capture</b><small>Asset, GPS, photos and barcode.</small></div></a>
+    <a href="/intake"><span class="launch-icon">04</span><div><b>Data Entry</b><small>Review and register submitted samples.</small></div></a>
+    <a href="/receiving"><span class="launch-icon">05</span><div><b>Sample Receiving</b><small>Barcode receipt and custody confirmation.</small></div></a>
+    <a href="/lab/operations?section=dashboard"><span class="launch-icon">06</span><div><b>Laboratory Operations</b><small>Workstations, QC, methods, reports and storage.</small></div></a>
+    <a href="/assessment"><span class="launch-icon">07</span><div><b>Technical Assessment</b><small>Review findings and approve technical decisions.</small></div></a>
+    <a href="/management"><span class="launch-icon">08</span><div><b>Management</b><small>Operational performance and sample visibility.</small></div></a>
+  </div>
+</section>
+
+<div class="grid two">
+<section class="panel"><div class="section-head"><h2>Administration</h2></div><div class="admin-actions grid cards-4 compact-admin-grid">
+  <a class="admin-tile" href="/admin/master-data"><b>Master Data Center</b><span>Configure</span></a>
+  <a class="admin-tile" href="/admin/sites"><b>Sites</b><span>{{ counts.sites }}</span></a>
+  <a class="admin-tile" href="/admin/clients"><b>Companies</b><span>{{ counts.clients }}</span></a>
+  <a class="admin-tile" href="/admin/users"><b>Users & Access</b><span>{{ counts.users }}</span></a>
+  <a class="admin-tile" href="/admin/assets"><b>Assets</b><span>{{ counts.assets }}</span></a>
+  <a class="admin-tile" href="/admin/commercial"><b>Quotation & PO</b><span>Master Data</span></a>
+  <a class="admin-tile" href="/admin/documents"><b>Controlled Docs</b><span>{{ counts.documents }}</span></a>
+  <a class="admin-tile" href="/admin/test-packages"><b>Test Packages</b><span>{{ counts.packages }}</span></a>
+  <a class="admin-tile" href="/admin/workflows"><b>Workflow & Approvals</b><span>{{ counts.workflows }}</span></a>
+  <a class="admin-tile" href="/admin/integrations"><b>Integration Control</b><span>{{ counts.integration_pending }} attention</span></a>
+</div></section>
+<section class="panel"><div class="section-head"><h2>Recent Activity</h2><a href="/admin/audit">Audit log</a></div><div class="audit-list">{% for row in recent %}<div><b>{{ row.action.replace('_',' ')|title }}</b><span>{{ row.summary }}</span><small>{{ row.created_at.strftime('%Y-%m-%d %H:%M') }} · {{ row.actor.full_name if row.actor else 'System' }}</small></div>{% else %}<p class="muted">No activity yet.</p>{% endfor %}</div></section>
+</div>
+{% endblock %}

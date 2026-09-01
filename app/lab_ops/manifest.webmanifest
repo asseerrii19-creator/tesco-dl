@@ -1,0 +1,9 @@
+{
+  "name": "TSCO Transformer Oil Laboratory Operations System \u2014 Dammam",
+  "short_name": "TSCO Oil Lab DMM",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#EEF3F8",
+  "theme_color": "#17365D",
+  "description": "Dammam transformer-oil laboratory operations, quality control, technical supervision, calculations, reporting and controlled procedures."
+}
