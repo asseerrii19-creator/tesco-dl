@@ -1,0 +1,40 @@
+TSCO DIGITAL LABORATORY PLATFORM — FIXED UAT DEPLOYMENT
+======================================================
+
+ONE-TIME FILES IN GITHUB ROOT
+-----------------------------
+1) TSCO_CODE_CURRENT.zip
+2) TSCO_REFERENCE_ASSETS.zip
+
+Do not create version-specific part files after this setup.
+The reference-assets archive is stable and is not replaced for ordinary code/UI/workflow fixes.
+For future software releases, replace ONLY TSCO_CODE_CURRENT.zip and commit.
+
+ONE-TIME RENDER BUILD COMMAND
+-----------------------------
+rm -rf release_current && mkdir -p release_current && python -m zipfile -t TSCO_CODE_CURRENT.zip && python -m zipfile -t TSCO_REFERENCE_ASSETS.zip && python -c "import zipfile; zipfile.ZipFile('TSCO_CODE_CURRENT.zip').extractall('release_current'); zipfile.ZipFile('TSCO_REFERENCE_ASSETS.zip').extractall('release_current')" && cd release_current && pip install -r requirements.txt && bash BUILD_RELEASE_CHECK.sh
+
+ONE-TIME RENDER START COMMAND
+-----------------------------
+cd release_current && alembic upgrade head && uvicorn app.main:app --host 0.0.0.0 --port $PORT --proxy-headers --forwarded-allow-ips="*"
+
+RECOMMENDED ONE-TIME RENDER SETTING
+-----------------------------------
+Auto-Deploy: ON for branch main.
+After this, a commit that replaces TSCO_CODE_CURRENT.zip triggers the normal build automatically.
+
+NORMAL FUTURE RELEASE
+---------------------
+1) Replace TSCO_CODE_CURRENT.zip in GitHub root.
+2) Commit.
+3) Do not change Render Build Command.
+4) Do not change Render Start Command.
+5) Do not replace TSCO_REFERENCE_ASSETS.zip unless bundled seed reference documents themselves changed.
+
+RELEASE GATE
+------------
+Render validates both ZIP archives before extraction and the code bundle runs the current v3.4.x regression gate during build. A failing regression prevents the new release from deploying.
+
+OPERATIONAL RULE
+----------------
+Operational sample/intake corrections are performed through controlled in-system amendment and audit trail. Master/configuration changes belong in authorized system screens. Deploys are reserved for software defects or new software behavior.
